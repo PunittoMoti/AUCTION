@@ -62,7 +62,9 @@
   <ItemGroup>
     <Compile Include="Assets\Script\CDayManager.cs" />
     <Compile Include="Assets\Script\CTestGameManager.cs" />
+    <Compile Include="Assets\Script\CItemObject.cs" />
     <Compile Include="Assets\Script\CMoneyManager.cs" />
+    <Compile Include="Assets\Script\ItemStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
