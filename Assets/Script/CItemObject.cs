@@ -5,24 +5,10 @@ using static ItemStatus;
 
 public class CItemObject : MonoBehaviour
 {
-    [SerializeField] string mName;                  //アイテム名
-    [SerializeField] int mPrice;                    //値段
-    [SerializeField] ITEMSTATUS mItemStatus;        //アイテムの種類
-    [SerializeField] string mItemText;              //アイテム説明
-
-/*
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-*/
+    string mName;                  //アイテム名
+    int mPrice;                    //値段
+    ITEMSTATUS mItemStatus;        //アイテムの種類
+    string mItemText;              //アイテム説明
 
     //アイテム名取得
     public string GetItemName()
@@ -47,5 +33,15 @@ public class CItemObject : MonoBehaviour
     {
         return mName;
     }
+
+    //アイテムデータの取得
+    public void SetItemData(CItemData item)
+    {
+        mName = item.GetItemName();
+        mPrice = item.GetItemPrice();
+        mItemStatus = item.GetItemStatus();
+        mItemText = item.GetItemText();
+    }
+
 
 }
