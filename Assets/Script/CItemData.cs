@@ -10,6 +10,7 @@ public class CItemData : ScriptableObject
     [SerializeField] int mPrice;                    //値段
     [SerializeField] ITEMSTATUS mItemStatus;        //アイテムの種類
     [SerializeField] string mItemText;              //アイテム説明
+    [SerializeField] Sprite mIcon;                  //アイコン
 
     //アイテム名取得
     public string GetItemName()
@@ -34,4 +35,11 @@ public class CItemData : ScriptableObject
     {
         return mName;
     }
+
+    //アイテムアイコン取得
+    public Sprite GetItemIcon()
+    {
+        return mIcon;
+    }
+
 }
