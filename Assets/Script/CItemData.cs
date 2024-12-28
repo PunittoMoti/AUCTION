@@ -11,6 +11,7 @@ public class CItemData : ScriptableObject
     [SerializeField] ITEMSTATUS mItemStatus;        //アイテムの種類
     [SerializeField] string mItemText;              //アイテム説明
     [SerializeField] Sprite mIcon;                  //アイコン
+    [SerializeField] GameObject mCatalogPrefab;     //カタログのPrefab　※ITEMSTATUSがカタログのみ使用
 
     //アイテム名取得
     public string GetItemName()
@@ -33,7 +34,7 @@ public class CItemData : ScriptableObject
     //アイテムテキスト取得
     public string GetItemText()
     {
-        return mName;
+        return mItemText;
     }
 
     //アイテムアイコン取得
@@ -42,4 +43,9 @@ public class CItemData : ScriptableObject
         return mIcon;
     }
 
+    //カタログだった場合Prefab取得
+    public GameObject GetCatalogPrefab()
+    {
+        return mCatalogPrefab;
+    }
 }

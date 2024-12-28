@@ -11,6 +11,8 @@ public class CItemObject : MonoBehaviour
     ITEMSTATUS mItemStatus;        //アイテムの種類
     string mItemText;              //アイテム説明
     Sprite mIcon;                  //アイコン
+    GameObject mCatalogPrefab;     //カタログのPrefab　※ITEMSTATUSがカタログのみ使用
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +57,13 @@ public class CItemObject : MonoBehaviour
         return mIcon;
     }
 
+    //カタログだった場合Prefab取得
+    public GameObject GetCatalogPrefab()
+    {
+        return mCatalogPrefab;
+    }
+
+
 
     //アイテムデータの取得
     public void SetItemData(CItemData item)
@@ -64,6 +73,12 @@ public class CItemObject : MonoBehaviour
         mItemStatus = item.GetItemStatus();
         mItemText = item.GetItemText();
         mIcon = item.GetItemIcon();
+
+        //カタログだった場合Prefab取得
+        if(mItemStatus == ITEMSTATUS.CATALOG)
+        {
+            mCatalogPrefab = item.GetCatalogPrefab();
+        }
 
         //取得した物を適用
         transform.Find("Canvas/Name").gameObject.GetComponent<TMP_Text>().text = mName;
@@ -80,6 +95,13 @@ public class CItemObject : MonoBehaviour
         mItemText = item.GetItemText();
         mIcon = item.GetItemIcon();
 
+        //カタログだった場合Prefab取得
+        if (mItemStatus == ITEMSTATUS.CATALOG)
+        {
+            mCatalogPrefab = item.GetCatalogPrefab();
+        }
+
+
         //取得した物を適用
         transform.Find("Canvas/Name").gameObject.GetComponent<TMP_Text>().text = mName;
         transform.Find("Icon").gameObject.GetComponent<SpriteRenderer>().sprite = mIcon;
@@ -89,6 +111,12 @@ public class CItemObject : MonoBehaviour
     //アイテムオブジェクトデータの削除
     public void RemoveItemObject()
     {
+        //カタログだった場合Prefab参照削除
+        if (mItemStatus == ITEMSTATUS.CATALOG)
+        {
+            mCatalogPrefab =null;
+        }
+
         mName = "----";
         mPrice = 0;
         mItemStatus = ITEMSTATUS.EMPTY;

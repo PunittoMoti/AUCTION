@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\CItemList.cs" />
     <Compile Include="Assets\Script\CTestGameManager.cs" />
     <Compile Include="Assets\Script\CItemObject.cs" />
+    <Compile Include="Assets\Script\CCatalogObject.cs" />
     <Compile Include="Assets\Script\CItemData.cs" />
     <Compile Include="Assets\Script\CItemDataBase.cs" />
     <Compile Include="Assets\Script\CMoneyManager.cs" />

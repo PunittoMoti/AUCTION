@@ -7,6 +7,7 @@ public class ItemStatus
     public enum ITEMSTATUS
     {
         EMPTY,
-        PARTS
+        PARTS,
+        CATALOG
     }
 }
