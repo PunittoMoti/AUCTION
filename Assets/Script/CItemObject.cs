@@ -49,6 +49,13 @@ public class CItemObject : MonoBehaviour
         return mName;
     }
 
+    //アイテムアイコン取得
+    public Sprite GetItemIcon()
+    {
+        return mIcon;
+    }
+
+
     //アイテムデータの取得
     public void SetItemData(CItemData item)
     {
@@ -63,6 +70,37 @@ public class CItemObject : MonoBehaviour
         transform.Find("Icon").gameObject.GetComponent<SpriteRenderer>().sprite = mIcon;
 
     }
+
+    //アイテムオブジェクトデータの取得
+    public void SetItemObject(CItemObject item)
+    {
+        mName = item.GetItemName();
+        mPrice = item.GetItemPrice();
+        mItemStatus = item.GetItemStatus();
+        mItemText = item.GetItemText();
+        mIcon = item.GetItemIcon();
+
+        //取得した物を適用
+        transform.Find("Canvas/Name").gameObject.GetComponent<TMP_Text>().text = mName;
+        transform.Find("Icon").gameObject.GetComponent<SpriteRenderer>().sprite = mIcon;
+
+    }
+
+    //アイテムオブジェクトデータの削除
+    public void RemoveItemObject()
+    {
+        mName = "----";
+        mPrice = 0;
+        mItemStatus = ITEMSTATUS.EMPTY;
+        mItemText = "----";
+        mIcon = null ;
+
+        //取得した物を適用
+        transform.Find("Canvas/Name").gameObject.GetComponent<TMP_Text>().text = mName;
+        transform.Find("Icon").gameObject.GetComponent<SpriteRenderer>().sprite = mIcon;
+
+    }
+
 
 
 }

@@ -5,17 +5,14 @@ using UnityEngine;
 public class CItemList : MonoBehaviour
 {
     List<CItemObject> mItemObjects = new List<CItemObject>();
-    List<GameObject> mItems;
-    List<int> mItemNumber = new List<int>() { 0,2,1,2};
+    List<GameObject> mItems = new List<GameObject>();
+    [SerializeField] List<int> mItemNumber = new List<int>();
 
     CItemDataBase mItemDateBase;
 
     // Start is called before the first frame update
     void Start()
     {
-        //子オブジェクト取得
-        mItems = new List<GameObject>();
-
         //データベース取得
         mItemDateBase = Resources.Load<CItemDataBase>("Items/ItemDataBase");
 
@@ -43,7 +40,7 @@ public class CItemList : MonoBehaviour
             //アイテムリストに取得
             AddItem(mItems[count].GetComponent<CItemObject>());
 
-            Debug.Log("数：" + mItemNumber.Count);
+            //Debug.Log("数と名前：" + mItemObjects.Count+ mItems[count].GetComponent<CItemObject>().GetItemName());
         }
     }
 
@@ -57,17 +54,55 @@ public class CItemList : MonoBehaviour
     void AddItem(CItemObject item)
     {
         mItemObjects.Add(item);
+        Debug.Log("オブジェクト名" + this.name);
+        Debug.Log("追加："+ mItemObjects.Count);
+
+    }
+
+    //アイテム情報取得
+    public CItemObject GetItem(int itemNumber)
+    {
+        if (mItemObjects.Count-1< itemNumber)
+        {
+            Debug.Log("要素数オーバー(GetItem)"+ mItemObjects.Count);
+        }
+
+        return mItemObjects[itemNumber];
+    }
+
+    //ゲームオブジェクトリスト取得
+    public List<GameObject> GetGameObjectList()
+    {
+        return mItems;
+    }
+
+    //アイテムList取得
+    public List<CItemObject> GetItemList()
+    {
+        Debug.Log("オブジェクト名" + this.name);
+        Debug.Log("要素数(ListGet)" + mItemObjects.Count);
+
+        return mItemObjects;
+    }
+
+    //リスト間のアイテム移動
+    public void MoveItem(CItemList list,int itemNumber)
+    {
+        //アイテムリストに追加
+        mItemObjects.Add(list.GetItem(itemNumber));
+        //Item情報セット
+        mItems[mItemObjects.Count-1].GetComponent<CItemObject>().SetItemObject(mItemObjects[mItemObjects.Count - 1]);
+        //移動前のデータ削除 なんか一個ずれる
+        list.GetItem(itemNumber).RemoveItemObject();
+        //参照先のリストのアイテムオブジェクトデータ削除
+        list.GetItemList().RemoveAt(itemNumber);
     }
 }
 
 
 /*
- 子オブジェクト取得
-↓
-番号配列読み込みテキストファイル読み込み
-↓
-リストにアイテムデータを利用して配列の番号に合ったものを順に入れていく
-↓
-
- 
+課題
+　移動後の並び替え
+　お金の勘定
+　整備
  */

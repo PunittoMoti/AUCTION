@@ -39,11 +39,18 @@ public class CTestGameManager : MonoBehaviour
     {
         var value = mAction.ReadValue<float>();
 
-        if (value >= 1.0f)
+        if (mAction.WasPressedThisFrame())
         {
+            CItemList Bag = GameObject.Find("ItemBagList").GetComponent<CItemList>();
+            CItemList Shop = GameObject.Find("ItemShopList").GetComponent<CItemList>();
+
+            Bag.MoveItem(Shop,2);
+
+            /*
             CMoneyManager.sMoneyManager.AddMoney(10);
             Debug.Log($"Action‚Ì“ü—Í’l : {value}");
             Debug.Log($"‚¨‹à: {CMoneyManager.sMoneyManager.GetMoneyValue()}");
+            */
 
         }
     }
