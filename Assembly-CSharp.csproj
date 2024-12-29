@@ -69,6 +69,7 @@
     <Compile Include="Assets\Script\CItemDataBase.cs" />
     <Compile Include="Assets\Script\CMoneyManager.cs" />
     <Compile Include="Assets\Script\ItemStatus.cs" />
+    <Compile Include="Assets\Script\CSceneMoveObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
