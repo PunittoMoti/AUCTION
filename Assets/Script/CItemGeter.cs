@@ -31,4 +31,6 @@ public class CItemGeter : MonoBehaviour
         Debug.Log("EVENTÅI");
         mShowItem.GetComponent<CShowShopObject>().SetItemObject(mMyItemObject,this.gameObject);
     }
+
+
 }

@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\CShowShopObject.cs" />
+    <Compile Include="Assets\Script\CCataloManager.cs" />
     <Compile Include="Assets\Script\CDayManager.cs" />
     <Compile Include="Assets\Script\CItemGeter.cs" />
     <Compile Include="Assets\Script\CItemList.cs" />
