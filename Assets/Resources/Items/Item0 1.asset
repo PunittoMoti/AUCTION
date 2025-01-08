@@ -16,4 +16,5 @@ MonoBehaviour:
   mPrice: 300
   mItemStatus: 1
   mItemText: "\u3044\u3044\u304A\u5B9D"
-  mIcon: {fileID: 21300000, guid: a38102596b624ed4cbf533fffa64971b, type: 3}
+  mIcon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  mCatalogPrefab: {fileID: 0}

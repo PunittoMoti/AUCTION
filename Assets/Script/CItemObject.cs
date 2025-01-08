@@ -13,7 +13,6 @@ public class CItemObject : MonoBehaviour
     Sprite mIcon;                  //アイコン
     GameObject mCatalogPrefab;     //カタログのPrefab　※ITEMSTATUSがカタログのみ使用
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +24,6 @@ public class CItemObject : MonoBehaviour
     {
 
     }
-
 
     //アイテム名取得
     public string GetItemName()
@@ -48,7 +46,7 @@ public class CItemObject : MonoBehaviour
     //アイテムテキスト取得
     public string GetItemText()
     {
-        return mName;
+        return mItemText;
     }
 
     //アイテムアイコン取得

@@ -28,10 +28,9 @@ public class CSceneMoveObject : MonoBehaviour
         
     }
 
-    void MoveScene()
+    public void MoveScene()
     {
         SceneManager.LoadScene(mScenename);
-
     }
 
 

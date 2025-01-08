@@ -15,8 +15,9 @@ public class CMoneyManager
     }
 
     //x•¥‚¢ˆ—
-    void PayMoney()
+    public void PayMoney(int pay)
     {
+        sMoneyManager.mMoney -= pay;
 
     }
 
