@@ -70,6 +70,7 @@
     <Compile Include="Assets\Script\CCatalogObject.cs" />
     <Compile Include="Assets\Script\CAuctionMessageManager.cs" />
     <Compile Include="Assets\Script\CTalkObject.cs" />
+    <Compile Include="Assets\Script\CCallValueCounter.cs" />
     <Compile Include="Assets\Script\CItemData.cs" />
     <Compile Include="Assets\Script\CItemDataBase.cs" />
     <Compile Include="Assets\Script\CAuctionManager.cs" />

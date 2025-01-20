@@ -58,6 +58,25 @@ public class CPriceObject : MonoBehaviour
         CountUpAnim();
     }
 
+    //宣言加算処理
+    public void CallUpPoint(int point)
+    {
+        //金額変更前の値
+        mPrice = mNextPrice;
+        //金額を更新
+        mNextPrice = mNextPrice * point;
+
+        //アニメーションが再生中であればスキップする
+        if (mIsCountUp)
+        {
+            mSequence.Kill(true);
+        }
+
+        //アニメーション実行
+        CountUpAnim();
+    }
+
+
     //カウントアップアニメーション
     void CountUpAnim()
     {
