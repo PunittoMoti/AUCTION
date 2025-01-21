@@ -61,21 +61,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\CShowShopObject.cs" />
+    <Compile Include="Assets\Script\Auction\CAuctionitemObject.cs" />
     <Compile Include="Assets\Script\CCataloManager.cs" />
     <Compile Include="Assets\Script\CDayManager.cs" />
     <Compile Include="Assets\Script\CItemGeter.cs" />
+    <Compile Include="Assets\Script\Auction\CAuctionMessageManager.cs" />
     <Compile Include="Assets\Script\CItemList.cs" />
     <Compile Include="Assets\Script\CTestGameManager.cs" />
     <Compile Include="Assets\Script\CItemObject.cs" />
+    <Compile Include="Assets\Script\Auction\CAuctionManager.cs" />
     <Compile Include="Assets\Script\CCatalogObject.cs" />
-    <Compile Include="Assets\Script\CAuctionMessageManager.cs" />
-    <Compile Include="Assets\Script\CTalkObject.cs" />
-    <Compile Include="Assets\Script\CCallValueCounter.cs" />
+    <Compile Include="Assets\Script\Auction\CCallupUI.cs" />
     <Compile Include="Assets\Script\CItemData.cs" />
+    <Compile Include="Assets\Script\Auction\CAuctiontalkObject.cs" />
     <Compile Include="Assets\Script\CItemDataBase.cs" />
-    <Compile Include="Assets\Script\CAuctionManager.cs" />
-    <Compile Include="Assets\Script\CPriceObject.cs" />
-    <Compile Include="Assets\Script\CTestGameManager1.cs" />
+    <Compile Include="Assets\Script\Auction\CAuctiontalkManager.cs" />
     <Compile Include="Assets\Script\CMoneyManager.cs" />
     <Compile Include="Assets\Script\ItemStatus.cs" />
     <Compile Include="Assets\Script\CSceneMoveObject.cs" />

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CTalkObject : MonoBehaviour
+public class CAuctiontalkObject : MonoBehaviour
 {
     float mTime;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class CTalkObject : MonoBehaviour
     {
         mTime += Time.deltaTime;
 
-        if(mTime >= 2.0f)
+        if (mTime >= 2.0f)
         {
             Destroy(this.gameObject);
         }

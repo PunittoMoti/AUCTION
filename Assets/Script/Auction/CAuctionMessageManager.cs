@@ -43,19 +43,18 @@ public class CAuctionMessageManager : MonoBehaviour
             mPositionY = Random.Range(-145.0f, 145.0f);
 
             float PositionX;
+            // TalkObjectプレハブをGameObject型で取得
+            mUseObject = (GameObject)Resources.Load("AuctiontalkObject");
+
             //X座標決定
             if (mSideflag)
             {
                 //右サイド
-                // TalkObjectプレハブをGameObject型で取得
-                mUseObject = (GameObject)Resources.Load("TalkObject");
                 PositionX = 110.0f;
             }
             else
             {
                 //左サイド
-                // TalkObjectプレハブをGameObject型で取得
-                mUseObject = (GameObject)Resources.Load("TalkObject");
                 PositionX = -110.0f;
             }
 
@@ -63,7 +62,7 @@ public class CAuctionMessageManager : MonoBehaviour
             GameObject obj = Instantiate(mUseObject, GameObject.Find("TalkCanvas").transform.position, Quaternion.identity, GameObject.Find("TalkCanvas").transform);
             obj.GetComponent<RectTransform>().anchoredPosition = new Vector3(PositionX, mPositionY,0);
             //テキストセット
-            obj.GetComponent<CTalkObject>().SetTalkText(mTalkTexts[Random.Range(0, mTalkTexts.Count)]);
+            obj.GetComponent<CAuctiontalkObject>().SetTalkText(mTalkTexts[Random.Range(0, mTalkTexts.Count)]);
 
 
             //生成終了
