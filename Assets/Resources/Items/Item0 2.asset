@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Item0 2
   m_EditorClassIdentifier: 
   mName: "\u6DF1\u6DF5"
-  mPrice: 200
+  mPrice: 10000
+  mPriceupvalue: 5000
+  mSellvalue: 1000000
   mItemStatus: 0
-  mItemText: "\u3044\u3044\u304A\u5B9D"
+  mItemtext: "\u6697\u3044\u7A74\u3000\u5999\u306B\u3072\u304B\u308C\u308B"
+  mItemsecrettext: "\u8997\u304F\u3068\u3068\u3066\u3064\u3082\u306A\u3044\u5E78\u798F\u611F\u3092\u5F97\u3089\u308C\u308B\u304C\u5E30\u3063\u3066\u3053\u308C\u306A\u3044"
+  mReadtext: "\u305F\u3060\u306E\u7A74\u3067\u306F\u3042\u308A\u307E\u305B\u3093\uFF01\u30DE\u30CB\u30A2\u5782\u6D8E\u306E\u4E00\u54C1"
   mIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  mCatalogPrefab: {fileID: 0}

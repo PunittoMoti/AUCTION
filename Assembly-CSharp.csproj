@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Script\CShowShopObject.cs" />
     <Compile Include="Assets\Script\Auction\CAuctionitemObject.cs" />
+    <Compile Include="Assets\Script\Auction\CAuctioncatalogObject.cs" />
     <Compile Include="Assets\Script\CCataloManager.cs" />
     <Compile Include="Assets\Script\CDayManager.cs" />
     <Compile Include="Assets\Script\CItemGeter.cs" />

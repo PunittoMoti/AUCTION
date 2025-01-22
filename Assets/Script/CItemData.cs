@@ -7,9 +7,13 @@ using static ItemStatus;
 public class CItemData : ScriptableObject
 {
     [SerializeField] string mName;                  //アイテム名
-    [SerializeField] int mPrice;                    //値段
+    [SerializeField] int mPrice;                    //価格
+    [SerializeField] int mPriceupvalue;             //上昇価格
+    [SerializeField] int mSellvalue;                //売却価格
     [SerializeField] ITEMSTATUS mItemStatus;        //アイテムの種類
-    [SerializeField] string mItemText;              //アイテム説明
+    [SerializeField] string mItemtext;              //アイテム説明（概要）
+    [SerializeField] string mItemsecrettext;        //アイテム説明（詳細）
+    [SerializeField] string mReadtext;              //アイテム紹介
     [SerializeField] Sprite mIcon;                  //アイコン
     [SerializeField] GameObject mCatalogPrefab;     //カタログのPrefab　※ITEMSTATUSがカタログのみ使用
 
@@ -19,11 +23,24 @@ public class CItemData : ScriptableObject
         return mName;
     }
 
-    //値段取得
+    //価格取得
     public int GetItemPrice()
     {
         return mPrice;
     }
+
+    //上昇価格取得
+    public int GetPriceUpValue()
+    {
+        return mPriceupvalue;
+    }
+
+    //売却価格取得
+    public int GetSellvalue()
+    {
+        return mSellvalue;
+    }
+
 
     //種類取得
     public ITEMSTATUS GetItemStatus()
@@ -31,10 +48,24 @@ public class CItemData : ScriptableObject
         return mItemStatus;
     }
 
-    //アイテムテキスト取得
+    //アイテムテキスト（概要）取得
     public string GetItemText()
     {
-        return mItemText;
+        return mItemtext;
+    }
+
+    //アイテムテキスト(詳細)取得
+    public string GetItemSecretText()
+    {
+        return mItemsecrettext;
+    }
+
+
+
+    //アイテム紹介テキスト取得
+    public string GetReadText()
+    {
+        return mReadtext;
     }
 
     //アイテムアイコン取得
