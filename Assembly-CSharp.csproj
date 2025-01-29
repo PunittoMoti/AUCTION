@@ -74,6 +74,7 @@
     <Compile Include="Assets\Script\Shop\CShowShopObject.cs" />
     <Compile Include="Assets\Script\CCatalogObject.cs" />
     <Compile Include="Assets\Script\Auction\CCallupUI.cs" />
+    <Compile Include="Assets\Script\Result\CResultManager.cs" />
     <Compile Include="Assets\Script\CItemData.cs" />
     <Compile Include="Assets\Script\Shop\CShopItemObject.cs" />
     <Compile Include="Assets\Script\Shop\CItemList.cs" />
