@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CItemList : MonoBehaviour
 {
-    List<CItemObject> mItemObjects = new List<CItemObject>();
+    List<CShopItemObject> mItemObjects = new List<CShopItemObject>();
     List<GameObject> mItems = new List<GameObject>();
     [SerializeField] List<int> mItemNumber = new List<int>();
 
@@ -35,10 +35,10 @@ public class CItemList : MonoBehaviour
 
 
             CItemData itemData = mItemDateBase.GetItemData(mItemNumber[count]);
-            mItems[count].GetComponent<CItemObject>().SetItemData(itemData);
+            mItems[count].GetComponent<CShopItemObject>().SetItemData(itemData);
             
             //アイテムリストに取得
-            AddItem(mItems[count].GetComponent<CItemObject>());
+            AddItem(mItems[count].GetComponent<CShopItemObject>());
 
             //Debug.Log("数と名前：" + mItemObjects.Count+ mItems[count].GetComponent<CItemObject>().GetItemName());
         }
@@ -51,7 +51,7 @@ public class CItemList : MonoBehaviour
     }
 
     //アイテム追加
-    void AddItem(CItemObject item)
+    void AddItem(CShopItemObject item)
     {
         mItemObjects.Add(item);
         Debug.Log("オブジェクト名" + this.name);
@@ -60,7 +60,7 @@ public class CItemList : MonoBehaviour
     }
 
     //アイテム情報取得
-    public CItemObject GetItem(int itemNumber)
+    public CShopItemObject GetItem(int itemNumber)
     {
         if (mItemObjects.Count-1< itemNumber)
         {
@@ -77,7 +77,7 @@ public class CItemList : MonoBehaviour
     }
 
     //アイテムList取得
-    public List<CItemObject> GetItemList()
+    public List<CShopItemObject> GetItemList()
     {
         Debug.Log("オブジェクト名" + this.name);
         Debug.Log("要素数(ListGet)" + mItemObjects.Count);
@@ -85,6 +85,7 @@ public class CItemList : MonoBehaviour
         return mItemObjects;
     }
 
+    /*
     //リスト間のアイテム移動
     public void MoveItem(CItemList list,int itemNumber)
     {
@@ -97,6 +98,7 @@ public class CItemList : MonoBehaviour
         //参照先のリストのアイテムオブジェクトデータ削除
         list.GetItemList().RemoveAt(itemNumber);
     }
+    */
 }
 
 

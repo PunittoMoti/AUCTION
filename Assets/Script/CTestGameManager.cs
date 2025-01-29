@@ -44,7 +44,7 @@ public class CTestGameManager : MonoBehaviour
             CItemList Bag = GameObject.Find("ItemBagList").GetComponent<CItemList>();
             CItemList Shop = GameObject.Find("ItemShopList").GetComponent<CItemList>();
 
-            Bag.MoveItem(Shop,2);
+           // Bag.MoveItem(Shop,2);
 
             /*
             CMoneyManager.sMoneyManager.AddMoney(10);

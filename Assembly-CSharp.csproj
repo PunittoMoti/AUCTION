@@ -60,23 +60,27 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\CShowShopObject.cs" />
     <Compile Include="Assets\Script\Auction\CAuctionitemObject.cs" />
     <Compile Include="Assets\Script\Auction\CAuctioncatalogObject.cs" />
     <Compile Include="Assets\Script\CCataloManager.cs" />
     <Compile Include="Assets\Script\CDayManager.cs" />
-    <Compile Include="Assets\Script\CItemGeter.cs" />
+    <Compile Include="Assets\Script\Auction\CAuctionNPCManager.cs" />
     <Compile Include="Assets\Script\Auction\CAuctionMessageManager.cs" />
-    <Compile Include="Assets\Script\CItemList.cs" />
     <Compile Include="Assets\Script\CTestGameManager.cs" />
+    <Compile Include="Assets\Script\Auction\CAuctionNPC.cs" />
     <Compile Include="Assets\Script\CItemObject.cs" />
+    <Compile Include="Assets\Script\SItemList.cs" />
     <Compile Include="Assets\Script\Auction\CAuctionManager.cs" />
+    <Compile Include="Assets\Script\Shop\CShowShopObject.cs" />
     <Compile Include="Assets\Script\CCatalogObject.cs" />
     <Compile Include="Assets\Script\Auction\CCallupUI.cs" />
     <Compile Include="Assets\Script\CItemData.cs" />
+    <Compile Include="Assets\Script\Shop\CShopItemObject.cs" />
+    <Compile Include="Assets\Script\Shop\CItemList.cs" />
     <Compile Include="Assets\Script\Auction\CAuctiontalkObject.cs" />
     <Compile Include="Assets\Script\CItemDataBase.cs" />
     <Compile Include="Assets\Script\Auction\CAuctiontalkManager.cs" />
+    <Compile Include="Assets\Script\Shop\CShopManager.cs" />
     <Compile Include="Assets\Script\CMoneyManager.cs" />
     <Compile Include="Assets\Script\ItemStatus.cs" />
     <Compile Include="Assets\Script\CSceneMoveObject.cs" />

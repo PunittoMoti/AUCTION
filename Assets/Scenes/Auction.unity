@@ -2655,6 +2655,7 @@ GameObject:
   - component: {fileID: 1309086714}
   - component: {fileID: 1309086716}
   - component: {fileID: 1309086717}
+  - component: {fileID: 1309086718}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2725,6 +2726,21 @@ MonoBehaviour:
   - "\u3044\u307E\u3044\u3061\u304B\u3082"
   - "\u25A0\u25A0\uFF01\u25A0\u25CF\u25BC\uFF01\uFF01"
   - "\u30FB\u30FB\u30FB\u30FB"
+--- !u!114 &1309086718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309086710}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f811b38009fa246b2c1d87e9718eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mNPCs:
+  - {fileID: 1277243614491537304, guid: 1dc37025d9a37a049b41a725e6acf85e, type: 3}
+  - {fileID: 2982482607958319820, guid: 1410b1c57dafa8045a3b3caf609be43a, type: 3}
 --- !u!1 &1380175462
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,7 +2791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.42352945, g: 0.42352945, b: 0.42352945, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
