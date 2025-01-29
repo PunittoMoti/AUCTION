@@ -47,6 +47,14 @@ public class CAuctionNPCManager : MonoBehaviour
         }
         else
         {
+            //生成終了
+            mIsStart = false;
+            //時間初期化
+            mTime = 0f;
+            //生成時間再設定
+            mSetTime = Random.Range(5.0f, 10.0f);
+
+
             //左右ランダム
             if (Random.value > 0.5f) mSideflag = true;
             else mSideflag = false;
@@ -68,7 +76,7 @@ public class CAuctionNPCManager : MonoBehaviour
                 PositionX = -110.0f;
             }
 
-            mNumber = Random.Range(0, 1);
+            mNumber = Random.Range(0, 100) % 2;
 
             switch (mNumber)
             {
@@ -80,19 +88,9 @@ public class CAuctionNPCManager : MonoBehaviour
                     break;
             }
 
-            //// TalkObjectプレハブを元に、インスタンスを生成、
-            //GameObject obj = Instantiate(mNPC, GameObject.Find("TalkCanvas").transform.position, Quaternion.identity, GameObject.Find("TalkCanvas").transform);
-            //obj.GetComponent<RectTransform>().anchoredPosition = new Vector3(PositionX, mPositionY, 0);
-
-            mNPC.GetComponent<CAuctionNPC>().NPCAction();
-
-            //生成終了
-            mIsStart = false;
-            //時間初期化
-            mTime = 0f;
-            //生成時間再設定
-            mSetTime = Random.Range(10.0f, 20.0f);
-            
+            // TalkObjectプレハブを元に、インスタンスを生成、
+            GameObject obj = Instantiate(mNPC, GameObject.Find("NPCCanvas").transform.position, Quaternion.identity, GameObject.Find("NPCCanvas").transform);
+            obj.GetComponent<RectTransform>().anchoredPosition = new Vector3(PositionX, mPositionY, 0);
         }
 
     }

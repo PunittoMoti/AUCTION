@@ -7,12 +7,11 @@ using TMPro;
 public class CAuctionNPC : MonoBehaviour
 {
     CAuctionManager mAuctionManager;    //オークションシーンのGameManager
-    [SerializeField] Image mNPCicon;                    //キャラ画像
     TMP_Text mActionText;               //アクションテキスト
     int mActionvalue;
     float mTime;
-    [SerializeField] int[] mAdd;
-    [SerializeField] int[] mCallup;
+    [SerializeField] int mAdd;
+    [SerializeField] int mCallup;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +20,7 @@ public class CAuctionNPC : MonoBehaviour
         mAuctionManager = GameObject.Find("GameManager").GetComponent<CAuctionManager>();
         mActionText = this.gameObject.transform.Find("ActionText").GetComponent<TMP_Text>();
 
+        NPCAction();
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class CAuctionNPC : MonoBehaviour
     {
         mTime += Time.deltaTime;
 
-        if (mTime >= 1.0f)
+        if (mTime >= 3.0f)
         {
             Destroy(this.gameObject);
         }
@@ -37,19 +37,21 @@ public class CAuctionNPC : MonoBehaviour
 
     public void NPCAction()
     {
+        mActionvalue = Random.Range(0, 100);
 
-        if(mActionvalue >= mAdd[0] && mActionvalue <= mAdd[1])
+
+        if (mActionvalue % 100 <= mAdd)
         {
             AddMove();
         }
-        else if (mActionvalue >= mCallup[0] && mActionvalue <= mCallup[1])
+        else if (mActionvalue % 100 <= mAdd+ mCallup)
         {
 
             CallupMove();
         }
         else
         {
-            Destroy(this.gameObject);
+            mActionText.text = "空";
         }
 
     }
@@ -70,12 +72,12 @@ public class CAuctionNPC : MonoBehaviour
 
     }
 
-    public int[] GetAdd()
+    public int GetAdd()
     {
         return mAdd;
     }
 
-    public int[] GetCallup()
+    public int GetCallup()
     {
         return mCallup;
     }
