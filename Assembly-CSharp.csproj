@@ -67,6 +67,7 @@
     <Compile Include="Assets\Script\Auction\CAuctionNPCManager.cs" />
     <Compile Include="Assets\Script\Auction\CAuctionMessageManager.cs" />
     <Compile Include="Assets\Script\CTestGameManager.cs" />
+    <Compile Include="Assets\Script\Result\CPartsButton.cs" />
     <Compile Include="Assets\Script\Auction\CAuctionNPC.cs" />
     <Compile Include="Assets\Script\CItemObject.cs" />
     <Compile Include="Assets\Script\SItemList.cs" />
