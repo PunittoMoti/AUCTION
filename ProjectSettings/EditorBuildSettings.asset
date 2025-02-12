@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Auction.unity
     guid: 28eb012400a18154e862d32ff2c6bbc7
+  - enabled: 1
+    path: Assets/Scenes/Result.unity
+    guid: 1ea46c47c4f586b4589ff3c095de991f
+  - enabled: 1
+    path: Assets/Scenes/ItemSort.unity
+    guid: fe7f9e800f3b28c499100fa34336e2c3
   m_configObjects: {}

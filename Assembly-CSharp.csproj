@@ -61,8 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Auction\CAuctionitemObject.cs" />
+    <Compile Include="Assets\Script\Sort\CSortItemObject.cs" />
     <Compile Include="Assets\Script\Auction\CAuctioncatalogObject.cs" />
     <Compile Include="Assets\Script\CCataloManager.cs" />
+    <Compile Include="Assets\Script\Sort\CItemSortManager.cs" />
     <Compile Include="Assets\Script\CDayManager.cs" />
     <Compile Include="Assets\Script\Auction\CAuctionNPCManager.cs" />
     <Compile Include="Assets\Script\Auction\CAuctionMessageManager.cs" />
@@ -81,8 +83,10 @@
     <Compile Include="Assets\Script\Shop\CItemList.cs" />
     <Compile Include="Assets\Script\Auction\CAuctiontalkObject.cs" />
     <Compile Include="Assets\Script\CItemDataBase.cs" />
+    <Compile Include="Assets\Script\Sort\CCheckBoxObject.cs" />
     <Compile Include="Assets\Script\Auction\CAuctiontalkManager.cs" />
     <Compile Include="Assets\Script\Shop\CShopManager.cs" />
+    <Compile Include="Assets\Script\Sort\CSortItemList.cs" />
     <Compile Include="Assets\Script\CMoneyManager.cs" />
     <Compile Include="Assets\Script\ItemStatus.cs" />
     <Compile Include="Assets\Script\CSceneMoveObject.cs" />
