@@ -34,8 +34,9 @@ public class CSortItemList : MonoBehaviour
             }
 
 
-            CItemData itemData = mItemDateBase.GetItemData(mItemNumber[count]);
-            mItems[count].GetComponent<CSortItemObject>().SetItemData(itemData);
+            //CItemData itemData = mItemDateBase.GetItemData(mItemNumber[count]);
+            List<CItemData> itemDatas = SGameStatus.GetItemList();
+            mItems[count].GetComponent<CSortItemObject>().SetItemData(itemDatas[count]);
 
             //アイテムリストに取得
             AddItem(mItems[count].GetComponent<CSortItemObject>());

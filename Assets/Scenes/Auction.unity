@@ -2694,9 +2694,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1309086714}
+        - m_Target: {fileID: 1309086719}
           m_TargetAssemblyTypeName: CAuctionManager, Assembly-CSharp
-          m_MethodName: AddPricevalue
+          m_MethodName: AddPlayerPrice
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2753,10 +2753,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1309086712}
-  - component: {fileID: 1309086714}
   - component: {fileID: 1309086716}
   - component: {fileID: 1309086717}
   - component: {fileID: 1309086718}
+  - component: {fileID: 1309086719}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2779,23 +2779,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1309086714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309086710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d6f5273ac0c55545a75a2c23ebfe86e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mItemdatas:
-  - {fileID: 11400000, guid: 9cc05868e70c4394985bb51013e21d9c, type: 2}
-  - {fileID: 11400000, guid: 5efa095d67ecfdd4f85593cb19167de9, type: 2}
-  - {fileID: 11400000, guid: f47f6e2b2da3747438ced1956c3daa01, type: 2}
-  mPlaytime: 10
 --- !u!114 &1309086716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2808,8 +2791,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8401d472d46fad42b906a8febd86e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mScenename: 
-  mSceneAsset: {fileID: 0}
+  mScenename: Result
+  mSceneAsset: {fileID: 102900000, guid: 1ea46c47c4f586b4589ff3c095de991f, type: 3}
 --- !u!114 &1309086717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2842,6 +2825,23 @@ MonoBehaviour:
   mNPCs:
   - {fileID: 6509958520700794211, guid: 0cf832abf990b1f41a55547e3aa684f1, type: 3}
   - {fileID: 7232408492530043752, guid: 53a7711748cbcbb4bbfa0905d758094b, type: 3}
+--- !u!114 &1309086719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309086710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6f5273ac0c55545a75a2c23ebfe86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mItemdatas:
+  - {fileID: 11400000, guid: 9cc05868e70c4394985bb51013e21d9c, type: 2}
+  - {fileID: 11400000, guid: 5efa095d67ecfdd4f85593cb19167de9, type: 2}
+  - {fileID: 11400000, guid: f47f6e2b2da3747438ced1956c3daa01, type: 2}
+  mPlaytime: 10
 --- !u!1 &1380175462
 GameObject:
   m_ObjectHideFlags: 0

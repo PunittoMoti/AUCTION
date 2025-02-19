@@ -34,7 +34,7 @@ public class CCallupUI : MonoBehaviour
     //éŒ¾‚Ì‰ÁZˆ—
     public void CallupPricevalue()
     {
-        mAuctionManager.CallupPricevalue((int)mCallupvalue);
+        mAuctionManager.CallupPricevalue((int)mCallupvalue,true);
         mCallupvalue = 2.0f;
     }
 

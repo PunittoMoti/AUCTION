@@ -12,8 +12,8 @@ public class CResultManager : MonoBehaviour
         END
     }
 
-    [SerializeField]int mMoney;      //所持金
-    [SerializeField] int mPayMoney;   //支払額
+    int mMoney;      //所持金
+    int mPayMoney;   //支払額
     RESULTSEWQUENCE mSequence;  //アニメーションのシーケンス管理番号
     float mTime;    //経過時間
     bool mIsPartsselect;//Select
@@ -25,6 +25,9 @@ public class CResultManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mMoney = SGameStatus.GetMoney();
+        mPayMoney = SGameStatus.GetPayMoney();
+
         //mMoney = CMoneyManager.sMoneyManager.GetMoneyValue();
         mTime = 0.0f;
         mIsPartsselect = false;
@@ -50,6 +53,10 @@ public class CResultManager : MonoBehaviour
                 if(mMoney>= mPayMoney)
                 {
                     mMoney -= mPayMoney;
+
+                    SGameStatus.ResetMoney();
+                    SGameStatus.ResetPayMoney();
+                    SGameStatus.AddMoney(mMoney);
                     mSequence = RESULTSEWQUENCE.END;
                 }
                 else

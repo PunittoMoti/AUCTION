@@ -16,6 +16,8 @@ public class CAuctionManager : MonoBehaviour
     int mItemnumber;                                //掲示中のアイテム番号
     [SerializeField] float mPlaytime;               //落札までの時間
     float mNowtime;                                 //現在時間
+    bool mIsPlayer;                                 //NPCとPlayerの判別
+
 
     CSceneMoveObject mScenemoveObject;              //シーン遷移用
 
@@ -33,6 +35,9 @@ public class CAuctionManager : MonoBehaviour
 
         //開始金額をテキストに反映
         mPricetext.SetText("{0:0000000000}", mPricevalue);
+
+        //プレイヤーFlag初期化
+        mIsPlayer = false;
 
         //シーンオブジェクト取得
         mScenemoveObject = this.GetComponent<CSceneMoveObject>();
@@ -53,6 +58,11 @@ public class CAuctionManager : MonoBehaviour
         {
             //終了演出（予定）
 
+            //どっちの支払いか判定
+            if (mIsPlayer)
+            {
+                SGameStatus.AddPayMoney(mPricevalue);//支払額に追加
+            }
 
             //時間初期化
             mNowtime = 0.0f;
@@ -80,6 +90,12 @@ public class CAuctionManager : MonoBehaviour
         {
             //終了演出（予定）
 
+            //どっちの支払いか判定
+            if (mIsPlayer)
+            {
+                SGameStatus.AddPayMoney(mPricevalue);//支払額に追加
+            }
+            Debug.Log("支払額" + SGameStatus.GetPayMoney());
             //シーン遷移
             mScenemoveObject.MoveScene();
         }
@@ -124,8 +140,10 @@ public class CAuctionManager : MonoBehaviour
     }
 
     //挙手加算処理
-    public void AddPricevalue()
+    public void AddPricevalue(bool isPlayer)
     {
+        mIsPlayer = isPlayer;
+
         //金額変更前の値
         mNextpricevalue = mPricevalue;
         //金額を更新
@@ -142,8 +160,9 @@ public class CAuctionManager : MonoBehaviour
     }
 
     //宣言加算処理
-    public void CallupPricevalue(int value)
+    public void CallupPricevalue(int value, bool isPlayer)
     {
+        mIsPlayer = isPlayer;
         //金額変更前の値
         mNextpricevalue = mPricevalue;
         //金額を更新
@@ -167,7 +186,11 @@ public class CAuctionManager : MonoBehaviour
         return false;
     }
 
-
+    //ボタンによる挙手用の呼び出し処理
+    public void AddPlayerPrice()
+    {
+        AddPricevalue(true);
+    }
 
 
 

@@ -2433,8 +2433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d42d74c443ed884fb2cb140e5ea572c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMoney: 500
-  mPayMoney: 800
   mPartsbuttons: {fileID: 298103743}
 --- !u!114 &1151479601
 MonoBehaviour:
@@ -2827,7 +2825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21cdaf88db74d54438f60e2e8401c75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mPricep: 100
+  mPricep: 1000000
 --- !u!114 &1475964858
 MonoBehaviour:
   m_ObjectHideFlags: 0

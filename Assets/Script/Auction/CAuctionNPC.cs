@@ -59,7 +59,7 @@ public class CAuctionNPC : MonoBehaviour
     //‹“ès“®ˆ—
     void AddMove()
     {
-        mAuctionManager.AddPricevalue();
+        mAuctionManager.AddPricevalue(false);
         mActionText.text = "‹“è";
     }
 
@@ -67,7 +67,7 @@ public class CAuctionNPC : MonoBehaviour
     void CallupMove()
     {
         int count= Random.Range(2, 5);
-        mAuctionManager.CallupPricevalue(count);
+        mAuctionManager.CallupPricevalue(count,false);
         mActionText.SetText("éŒ¾@~" + "{0:1}", (float)count);
 
     }

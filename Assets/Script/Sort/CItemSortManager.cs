@@ -13,7 +13,7 @@ public class CItemSortManager : MonoBehaviour
         END
     }
 
-    [SerializeField] int mMoney;      //所持金
+    int mMoney;      //所持金
     int mBuyMoney;                     //売却金額
     ITEMSORTSEWQUENCE mSequence;  //アニメーションのシーケンス管理番号
     float mTime;    //経過時間
@@ -31,6 +31,9 @@ public class CItemSortManager : MonoBehaviour
         //mMoney = CMoneyManager.sMoneyManager.GetMoneyValue();
         mTime = 0.0f;
         mIsEnd = false;
+
+        mMoney = SGameStatus.GetMoney();
+
         GameObject.Find("MyMoney").GetComponent<TMP_Text>().SetText("所持金：" + "{0:0000000000}", mMoney);
         GameObject.Find("BuyMoney").GetComponent<TMP_Text>().SetText("売却額：" + "{0:0000000000}", mBuyMoney);
 
@@ -58,10 +61,13 @@ public class CItemSortManager : MonoBehaviour
                     mSequence = ITEMSORTSEWQUENCE.BUYRESULT;
                 }
                 break;
-            //不足時の体売却の選択
+            //売却処理
             case ITEMSORTSEWQUENCE.BUYRESULT:
 
                 mAllPrice.GetComponent<TMP_Text>().SetText("清算結果：" + "{0:0000000000}", mMoney);
+                
+                //所持金加算
+                SGameStatus.AddMoney(mBuyMoney);
 
                 mTime += Time.deltaTime;
                 if (mTime >= 2.0)
@@ -77,7 +83,7 @@ public class CItemSortManager : MonoBehaviour
                     }
                 }
                 break;
-            //不足時の体売却の選択
+            //移植
             case ITEMSORTSEWQUENCE.SETPARTS:
                 mPartSet.SetActive(true);
                 mTime += Time.deltaTime;

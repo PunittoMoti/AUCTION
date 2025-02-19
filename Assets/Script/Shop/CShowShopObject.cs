@@ -23,16 +23,7 @@ public class CShowShopObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (CMoneyManager.sMoneyManager == null)
-        {
-            CMoneyManager.sMoneyManager = new CMoneyManager();
-
-            //デバッグ処理　直下の行のみ
-            CMoneyManager.sMoneyManager.AddMoney(100000);
-        }
-
         mShopmanager = GameObject.Find("ShopManager").GetComponent<CShopManager>();
-
     }
 
     // Update is called once per frame
@@ -62,19 +53,17 @@ public class CShowShopObject : MonoBehaviour
     //購入時の判定
     public void BuyItem()
     {
-        if (mShowItemdata.GetItemPrice() > CMoneyManager.sMoneyManager.GetMoneyValue()) 
+        if (mShowItemdata.GetItemPrice() > SGameStatus.GetMoney()) 
         {
             Debug.Log("資金不足");
             return;
         }
 
-        //アイテムリストが生成されていなければ生成
-        if (SItemList.Items == null) SItemList.Items = new List<CItemData>();
         //アイテムリストに追加
-        SItemList.AddItemList(mShowItemdata);
+        SGameStatus.AddItemList(mShowItemdata);
 
         //支払
-        CMoneyManager.sMoneyManager.PayMoney(mShowItemdata.GetItemPrice());
+        SGameStatus.PayMoney(mShowItemdata.GetItemPrice());
         
         //商品棚のアイテムを売り切れに変更
         mCheckGameObject.GetComponent<CShopItemObject>().NullItem();
@@ -86,7 +75,7 @@ public class CShowShopObject : MonoBehaviour
         transform.Find("Icon").gameObject.GetComponent<Image>().sprite = mShopmanager.GetSoldoutIcon();
 
 
-        Debug.Log("購入！！　残り金額："+ CMoneyManager.sMoneyManager.GetMoneyValue());
+        Debug.Log("購入！！　残り金額："+ SGameStatus.GetMoney());
     }
 
 }
