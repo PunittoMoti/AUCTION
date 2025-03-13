@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CShopManager : MonoBehaviour
+
+
+public class CUIObject : MonoBehaviour
 {
-    [SerializeField]Sprite mSoldouticon;
+    protected CItemData mItemdate;
+
+    /*
     // Start is called before the first frame update
     void Start()
     {
-        //SGameStatus.AddMoney(100000);
+        
     }
 
     // Update is called once per frame
@@ -16,9 +20,12 @@ public class CShopManager : MonoBehaviour
     {
         
     }
+    */
 
-    public Sprite GetSoldoutIcon()
+    //アイテムデータの取得
+    public void SetItemData(CItemData item)
     {
-        return mSoldouticon;
+        mItemdate = item;
     }
+
 }

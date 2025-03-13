@@ -168,8 +168,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7691823896969832090}
-          m_TargetAssemblyTypeName: CShopItemObject, Assembly-CSharp
+        - m_Target: {fileID: 774829357054536144}
+          m_TargetAssemblyTypeName: CShopItemUI, Assembly-CSharp
           m_MethodName: ActivePickupCursor
           m_Mode: 1
           m_Arguments:
@@ -184,8 +184,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7691823896969832090}
-          m_TargetAssemblyTypeName: CShopItemObject, Assembly-CSharp
+        - m_Target: {fileID: 774829357054536144}
+          m_TargetAssemblyTypeName: CShopItemUI, Assembly-CSharp
           m_MethodName: NoActivePickupCursor
           m_Mode: 1
           m_Arguments:
@@ -200,9 +200,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7691823896969832090}
-          m_TargetAssemblyTypeName: CShopItemObject, Assembly-CSharp
-          m_MethodName: SetShowItemObject
+        - m_Target: {fileID: 774829357054536144}
+          m_TargetAssemblyTypeName: CShopItemUI, Assembly-CSharp
+          m_MethodName: UIAction
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 7804869286712682280}
   - component: {fileID: 4203212691888879993}
   - component: {fileID: 1798821618975748714}
-  - component: {fileID: 7691823896969832090}
+  - component: {fileID: 774829357054536144}
   m_Layer: 5
   m_Name: ShopItemObject
   m_TagString: Untagged
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1798821618975748714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7691823896969832090
+--- !u!114 &774829357054536144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -460,6 +460,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6447361776147115237}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ff3adaa838fe1542a7e9d32a8216706, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dc76a820d11e47458e412ebb6926916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
