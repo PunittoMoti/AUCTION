@@ -64,6 +64,7 @@
     <Compile Include="Assets\oldScript\Sort\CCheckBoxObject.cs" />
     <Compile Include="Assets\oldScript\CItemData.cs" />
     <Compile Include="Assets\oldScript\SItemList.cs" />
+    <Compile Include="Assets\Script\CTextUI.cs" />
     <Compile Include="Assets\Script\IUI.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctionNPC.cs" />
     <Compile Include="Assets\Script\CUIObjectList.cs" />
