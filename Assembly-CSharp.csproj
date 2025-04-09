@@ -65,8 +65,8 @@
     <Compile Include="Assets\oldScript\CItemData.cs" />
     <Compile Include="Assets\oldScript\SItemList.cs" />
     <Compile Include="Assets\Script\IUI.cs" />
+    <Compile Include="Assets\Script\Manager\CEventSceneManager.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctionNPC.cs" />
-    <Compile Include="Assets\Script\Event\CEventSceneManager.cs" />
     <Compile Include="Assets\Script\CUIObjectList.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctioncatalogObject.cs" />
     <Compile Include="Assets\oldScript\CSceneMoveObject.cs" />
@@ -90,6 +90,7 @@
     <Compile Include="Assets\Script\CUIObject.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctionitemObject.cs" />
     <Compile Include="Assets\oldScript\CMoneyManager.cs" />
+    <Compile Include="Assets\Script\Manager\CCalendarManager.cs" />
     <Compile Include="Assets\oldScript\CCataloManager.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctiontalkObject.cs" />
     <Compile Include="Assets\oldScript\SGameStatus.cs" />

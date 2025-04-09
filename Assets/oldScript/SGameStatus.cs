@@ -6,7 +6,7 @@ public class SGameStatus
 {
     private static int mMoney;//所持金
     private static List<CItemData> mItemList;//所持アイテムリスト
-    private static int mDay;//日付
+    private static int mDay = 1;//日付
     private static int mPayMoney;//支払額
     //体状態のリスト（実装予定）
 

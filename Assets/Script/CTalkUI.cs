@@ -49,8 +49,12 @@ public class CTalkUI : MonoBehaviour,IUI
     public void UIAction()
     {
         //テキスト送りor次の会話
-        //配列より多くなったらイベント終了（仮でリターンしている）
-        if (mTalkList.Count - 2 < mTalknumber) return;
+        //配列より多くなったらイベント終了 遷移する
+        if (mTalkList.Count - 2 < mTalknumber) 
+        {
+            GameObject.Find("GameManager").GetComponent<CSceneMoveObject>().MoveScene();
+        }
+
         mTalknumber++;
         CheckTalkCommand();
         mText.text = mTalkList[mTalknumber].Substring(2);

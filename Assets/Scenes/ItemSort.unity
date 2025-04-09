@@ -2236,7 +2236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1eb8bf188f29f54887165c3982f554a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMoney: 1000
   mPartSet: {fileID: 1260778092}
   mAllPrice: {fileID: 1741447807}
 --- !u!114 &707393440
@@ -2251,8 +2250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8401d472d46fad42b906a8febd86e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mScenename: Shop
-  mSceneAsset: {fileID: 102900000, guid: a698b1c5797683e4589e73acea4f431d, type: 3}
+  mScenename: Event-End
+  mSceneAsset: {fileID: 102900000, guid: 39affcc0acbd7524eb384dc95d40ad11, type: 3}
 --- !u!1 &710468103
 GameObject:
   m_ObjectHideFlags: 0
