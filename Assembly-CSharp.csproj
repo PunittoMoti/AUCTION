@@ -64,6 +64,7 @@
     <Compile Include="Assets\oldScript\Sort\CCheckBoxObject.cs" />
     <Compile Include="Assets\oldScript\CItemData.cs" />
     <Compile Include="Assets\oldScript\SItemList.cs" />
+    <Compile Include="Assets\Script\Auction\Manager\CAuctionManager.cs" />
     <Compile Include="Assets\Script\IUI.cs" />
     <Compile Include="Assets\Script\Manager\CEventSceneManager.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctionNPC.cs" />
@@ -81,7 +82,7 @@
     <Compile Include="Assets\oldScript\Shop\CShopItemObject.cs" />
     <Compile Include="Assets\Script\CTalkUI.cs" />
     <Compile Include="Assets\oldScript\CCatalogObject.cs" />
-    <Compile Include="Assets\oldScript\Auction\CAuctionManager.cs" />
+    <Compile Include="Assets\oldScript\Auction\old_CAuctionManager.cs" />
     <Compile Include="Assets\oldScript\CItemDataBase.cs" />
     <Compile Include="Assets\oldScript\CDayManager.cs" />
     <Compile Include="Assets\oldScript\Sort\CItemSortManager.cs" />

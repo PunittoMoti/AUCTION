@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 
-public class CAuctionManager : MonoBehaviour
+public class old_CAuctionManager : MonoBehaviour
 {
     [SerializeField] List<CItemData> mItemdatas;    //アイテムリスト
     CItemData mItemdata;                            //アイテムデータ
