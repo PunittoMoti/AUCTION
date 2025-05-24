@@ -139,7 +139,7 @@ public class CAuctionSceneManager : MonoBehaviour
     //デバッグ用処理　ボタンなどできっかけとなる動作を行うよう
     public void DebugAction()
     {
-        Debug.Log("Debug");
+        //Debug.Log("Debug");
         mPhase = 0;
     }
 }

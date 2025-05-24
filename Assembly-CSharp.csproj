@@ -67,6 +67,7 @@
     <Compile Include="Assets\Script\IUI.cs" />
     <Compile Include="Assets\Script\Manager\CEventSceneManager.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctionNPC.cs" />
+    <Compile Include="Assets\Script\Auction\CMenuMove.cs" />
     <Compile Include="Assets\Script\CUIObjectList.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctioncatalogObject.cs" />
     <Compile Include="Assets\oldScript\CSceneMoveObject.cs" />
