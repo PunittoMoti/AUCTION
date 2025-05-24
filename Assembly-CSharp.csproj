@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\oldScript\Result\CPartsButton.cs" />
+    <Compile Include="Assets\Script\Auction\Card\CCardObject.cs" />
     <Compile Include="Assets\oldScript\Sort\CCheckBoxObject.cs" />
     <Compile Include="Assets\oldScript\CItemData.cs" />
     <Compile Include="Assets\oldScript\SItemList.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\oldScript\Auction\CAuctiontalkManager.cs" />
     <Compile Include="Assets\Script\CShopItemUI.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctionMessageManager.cs" />
+    <Compile Include="Assets\Script\Auction\Card\CHandcaedObject.cs" />
     <Compile Include="Assets\oldScript\Auction\CCallupUI.cs" />
     <Compile Include="Assets\oldScript\Result\CResultManager.cs" />
     <Compile Include="Assets\oldScript\Shop\CShopItemObject.cs" />

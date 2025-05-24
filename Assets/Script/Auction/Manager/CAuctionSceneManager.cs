@@ -4,24 +4,6 @@ using UnityEngine;
 
 public class CAuctionSceneManager : MonoBehaviour
 {
-    private class CCardObject
-    {
-        int mMoney;//金額
-        //イラスト
-
-        //金額取得
-        public void SetMonye(int value)
-        {
-            mMoney = value;
-        }
-
-        public int GetMonye()
-        {
-            return mMoney;
-        }
-
-
-    }
     int mPhase;
     List<CCardObject> mHandcaeds;//手札　カードオブジェクト配列(可変)
     List<CCardObject> mDeck;//デッキ　カードオブジェクト配列(可変)
