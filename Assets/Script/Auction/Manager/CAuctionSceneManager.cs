@@ -57,8 +57,9 @@ public class CAuctionSceneManager : MonoBehaviour
                 //紹介開始フラグ送信
 
                 //カードオブジェクト生成
-
                 //カードオブジェクトのｘ座標を既定の長さ÷手札配列の最大数で設定
+                GameObject.Find("HandCards").GetComponent<CHandcaedObject>().SetHandcaeds(mHandcaeds);
+                GameObject.Find("HandCards").GetComponent<CHandcaedObject>().CreateCard();
 
                 //処理終了後メインフェーズに移行
                 mPhase = 1;
