@@ -30,4 +30,19 @@ public class CCardObject : MonoBehaviour
         return mMoney;
     }
 
+    //クリック時の関数
+    /*
+        マウスカーソルと一緒に移動する 
+    　　見た目をかえる？
+    */
+
+    //クリックを話した時の関数
+    /*
+        使用範囲に当たっていれば　使用　それ以外れあれば手札に戻る
+    */
+
+    public void Test()
+    {
+        Debug.Log("クリック");
+    }
 }
