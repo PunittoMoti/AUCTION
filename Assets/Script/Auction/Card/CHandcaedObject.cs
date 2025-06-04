@@ -47,7 +47,10 @@ public class CHandcaedObject : MonoBehaviour
             //位置調整
             for(int i=0; i < mCardObjects.Count; i++)
             {
-                mCardObjects[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(-200.0f + (400/ mCardObjects.Count * (i+1)), -186.0f);
+                //位置を計算して設定
+                mCardObjects[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(276.5f + (400/ mCardObjects.Count * (i+1)), 75f);
+                //位置記録
+                mCardObjects[i].GetComponent<CCardObject>().SetHandCardPos(mCardObjects[i].GetComponent<RectTransform>().anchoredPosition);
             }
         }
         //配列数が子オブジェクトの数より少なければ

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class CMenuMove : MonoBehaviour
 {
     bool misMove;
+    [SerializeField]
+    GameObject mMenuObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,17 +19,17 @@ public class CMenuMove : MonoBehaviour
     {
         if (misMove)
         {
-            if(this.GetComponent<RectTransform>().anchoredPosition.x >= -60)
+            if(mMenuObject.GetComponent<RectTransform>().anchoredPosition.x >= -60)
             {
-                this.GetComponent<RectTransform>().anchoredPosition -= new Vector2(2.0f, 0);//毎フレームx座標を0.1ずつプラス
+                mMenuObject.GetComponent<RectTransform>().anchoredPosition -= new Vector2(2.0f, 0);//毎フレームx座標を0.1ずつプラス
             }
         }
         else
         {
-            if (this.GetComponent<RectTransform>().anchoredPosition.x <= 440)
+            if (mMenuObject.GetComponent<RectTransform>().anchoredPosition.x <= 440)
             {
                 Debug.Log("Debug");
-                this.GetComponent<RectTransform>().anchoredPosition += new Vector2(2.0f, 0);//毎フレームx座標を0.1ずつプラス
+                mMenuObject.GetComponent<RectTransform>().anchoredPosition += new Vector2(2.0f, 0);//毎フレームx座標を0.1ずつプラス
 
             }
 
