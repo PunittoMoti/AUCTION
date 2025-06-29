@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CAuctionSceneManager : MonoBehaviour
 {
     int mPhase;
     List<CCardObject> mHandcaeds;//手札　カードオブジェクト配列(可変)
     List<CCardObject> mDeck;//デッキ　カードオブジェクト配列(可変)
+    List<CCardObject> mUeshandcaeds;//使用待機カードオブジェクトを持っておく配列 (可変)
+
+    GameObject mMoneycounterObj;//金額表示
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +19,10 @@ public class CAuctionSceneManager : MonoBehaviour
         mHandcaeds = new List<CCardObject>();
         //デッキ配列生成
         mDeck = new List<CCardObject>();
+        //使用待機カード配列生成
+        mUeshandcaeds = new List<CCardObject>();
+        //金額表示オブジェクト取得
+        mMoneycounterObj = GameObject.Find("NowPrice");
 
         //デッキにカードを設定（テスト用）
         //→今後をデッキ配列取得に置き換え
@@ -101,6 +109,7 @@ public class CAuctionSceneManager : MonoBehaviour
         
         int DeckNo = 0;//デッキ
 
+        if (mDeck.Count < 1) return;
         //デッキのランダムな配列番号決定
         DeckNo = Random.Range(0, mDeck.Count - 1);
         //手札に追加
@@ -117,7 +126,24 @@ public class CAuctionSceneManager : MonoBehaviour
         //必要であればそのターン使用したカードが返ってくるように修正
     }
 
+    //使用カード登録・金額計算
+    public void SetUesCard(CCardObject card)
+    {
+        mUeshandcaeds.Add(card);
+        float count = 0;
 
+        for(int i=0;i< mUeshandcaeds.Count; i++)
+        {
+            count += mUeshandcaeds[i].GetMonye();
+        }
+
+        //もし合計金額が表示金額より少なければ
+        if (float.Parse(mMoneycounterObj.GetComponent<TMP_Text>().text) > count) return;
+
+        //表示金額更新
+        mMoneycounterObj.GetComponent<TMP_Text>().SetText("{0:0000000000}", count);
+
+    }
 
     //デバッグ用処理　ボタンなどできっかけとなる動作を行うよう
     public void DebugAction()

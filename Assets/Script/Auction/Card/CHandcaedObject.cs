@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class CHandcaedObject : MonoBehaviour
 {
+    GameObject mAuctionscenemanager;//オークションSceneマネジャー
 
     public List<CCardObject> mHandcaeds;//手札　カードオブジェクト配列(可変)
+    public List<CCardObject> mUeshandcaeds;//使用中の手札　カードオブジェクト配列(可変)
     List<GameObject> mCardObjects;//カードオブジェクトを持っておく配列 (可変)
+
 
     [SerializeField]
     GameObject mOriginCardObject;
@@ -14,6 +17,8 @@ public class CHandcaedObject : MonoBehaviour
     void Start()
     {
         mCardObjects = new List<GameObject>();
+        //AuctionSceneマネジャー取得
+        mAuctionscenemanager = GameObject.Find("GameManager");
     }
 
     // Update is called once per frame
@@ -28,6 +33,18 @@ public class CHandcaedObject : MonoBehaviour
         mHandcaeds = Handcaeds;
     }
 
+    public void SortHandocaeds()
+    {
+        for (int i = 0; i < mCardObjects.Count; i++)
+        {
+            //位置を計算して設定
+            mCardObjects[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(276.5f + (400 / mCardObjects.Count * (i + 1)), 75f);
+            //位置記録
+            mCardObjects[i].GetComponent<CCardObject>().SetHandCardPos(mCardObjects[i].GetComponent<RectTransform>().anchoredPosition);
+        }
+
+    }
+
     //手札ドロー時にオブジェクト生成処理
     public void CreateCard()
     {
@@ -39,19 +56,16 @@ public class CHandcaedObject : MonoBehaviour
             {
                 //生成
                 GameObject obj = Instantiate(mOriginCardObject, GameObject.Find("HandCards").transform.position, Quaternion.identity, GameObject.Find("HandCards").transform);
+                //生成したカードに番号振り分け
+                obj.GetComponent<CCardObject>().SetHandNumber(i);
                 //生成したものをカードオブジェクトのリストに追加
                 mCardObjects.Add(obj);
+
                 //生成時に対応する配列のデータをカードオブジェクトに受け渡し
 
             }
             //位置調整
-            for(int i=0; i < mCardObjects.Count; i++)
-            {
-                //位置を計算して設定
-                mCardObjects[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(276.5f + (400/ mCardObjects.Count * (i+1)), 75f);
-                //位置記録
-                mCardObjects[i].GetComponent<CCardObject>().SetHandCardPos(mCardObjects[i].GetComponent<RectTransform>().anchoredPosition);
-            }
+            SortHandocaeds();
         }
         //配列数が子オブジェクトの数より少なければ
         else if(mHandcaeds.Count < this.gameObject.transform.childCount)
@@ -59,12 +73,27 @@ public class CHandcaedObject : MonoBehaviour
             //削除
         }
 
-
-
-
-
-        // TalkObjectプレハブを元に、インスタンスを生成、
-        //obj.GetComponent<RectTransform>().anchoredPosition = new Vector3(PositionX, mPositionY, 0);
     }
-    //手札ドロー時に位置調整
+
+    //手札使用時の削除処理
+    public void UseCard(int number)
+    {
+        //使用待機カード登録
+        mAuctionscenemanager.GetComponent<CAuctionSceneManager>().SetUesCard(mHandcaeds[number]);
+
+        //オブジェクトの配列から削除
+        mCardObjects.RemoveAt(number);
+        //手札Data配列から削除
+        mHandcaeds.RemoveAt(number);
+
+        for (int i = 0; i < mCardObjects.Count; i++)
+        {
+            mCardObjects[i].GetComponent<CCardObject>().SetHandNumber(i);
+        }
+
+        //使用したカードを除いた位置調整
+        SortHandocaeds();
+    }
+
+
 }
