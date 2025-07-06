@@ -43,7 +43,7 @@ public class CAuctionSceneManager : MonoBehaviour
     {
         switch (mPhase)
         {
-            case 0://ドローフェーズ
+            case 0://ドローフェーズ・NPC参加判定
                 //枚数が5未満だったら
                 if (mHandcaeds.Count < 5)
                 {
@@ -102,6 +102,13 @@ public class CAuctionSceneManager : MonoBehaviour
         }
 
     }
+
+    //フェーズの値を取得
+    public int GetPhase()
+    {
+        return mPhase;
+    }
+
 
     //ドロー処理
     private void DrawAction()
