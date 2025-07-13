@@ -12,6 +12,7 @@ public class CAuctionNPCManager : MonoBehaviour
 
     List<CAuctionNPC> mNpcs;//全NPC
     GameObject mAuctionscenemanager;//オークションSceneマネジャー
+    [SerializeField] CItemData mSelectItem;//選択されているアイテム(Debug用にシリアライズ化している)
 
     // Start is called before the first frame update
     void Start()
@@ -35,31 +36,63 @@ public class CAuctionNPCManager : MonoBehaviour
     {
         //使用待機カード登録
         int Phase = mAuctionscenemanager.GetComponent<CAuctionSceneManager>().GetPhase();
+        
 
         //フェーズごとの行動　マーねーじゃーのフェーズを参照
         switch (Phase)
         {
             case 0://商品取得
                 //出ているアイテム情報取得
+                //mSelectItem=:
 
                 //全NPCの参加申請
-                for ()//アイテムの参加条件の要素数分繰り返す
+                for (int i = 0; i < mNpcs.Count; i++)//NPCの要素数分繰り返す
                 {
-                    for (int i = 0; i < mNpcs.Count; i++)
+                    for (int j = 0; j < mSelectItem.GetNormalAccessNPCs().Count; j++)
                     {
+                        
                         //アイテムの条件とキャラの番号確認
-                        if ()//mNpcs[i]
+                        if (mNpcs[i].GetNPCNumber() == mSelectItem.GetNormalAccessNPCs()[j])
                         {
-
+                            
+                            //通常参加
+                            mNpcs[i].SetActionpattern(1);
+                            break;
                         }
-                       
+                        //アイテムの条件とキャラの番号確認 執着　
+                        //執着の配列は通常より少ないためオーバーフロー防止のためiが配列数より多くないか確認してから執着判定
+                        else if (i <= mSelectItem.GetSpecialAccessNPCs().Count-1)
+                        {
+                            if (mNpcs[i].GetNPCNumber() == mSelectItem.GetSpecialAccessNPCs()[j])
+                            {
+                                //執着参加
+                                mNpcs[i].SetActionpattern(2);
+                                break;
+                            }
+                                
+                        }
+                        else
+                        {
+                            //不参加
+                            mNpcs[i].SetActionpattern(0);
+                        }
                     }
+
+                    
+                }
+              
+
+                //全NPC参加演出
+                for(int i = 0; i < mNpcs.Count; i++)
+                {
+                    mNpcs[i].ActiveAnimationNPC();
                 }
 
 
-
                 break;
-            case 1://オークション中
+            case 1://プレイヤーターン中
+                break;
+            case 2://NPCターン中
 
                 //状況確認　マネージャーに対して
 
@@ -68,7 +101,7 @@ public class CAuctionNPCManager : MonoBehaviour
                 ActionEndNPCs();
 
                 break;
-            case 2://商品落選直後　初期化を行う
+            case 3://商品落選直後　初期化を行う
                 ResultNPCs();
                 break;
         }

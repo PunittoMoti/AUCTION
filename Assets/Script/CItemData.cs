@@ -17,6 +17,8 @@ public class CItemData : ScriptableObject
     [SerializeField] string mReadtext;              //アイテム紹介
     [SerializeField] Sprite mIcon;                  //アイコン
     [SerializeField] GameObject mCatalogPrefab;     //カタログのPrefab　※ITEMSTATUSがカタログのみ使用
+    [SerializeField] List<int> mNormalaccessnpcs;   //通常参加条件
+    [SerializeField] List<int> mSpecialaccessnpcs;  //執着参加条件
 
     //アイテム名取得
     public string GetItemName()
@@ -61,8 +63,6 @@ public class CItemData : ScriptableObject
         return mItemsecrettext;
     }
 
-
-
     //アイテム紹介テキスト取得
     public string GetReadText()
     {
@@ -79,5 +79,16 @@ public class CItemData : ScriptableObject
     public GameObject GetCatalogPrefab()
     {
         return mCatalogPrefab;
+    }
+
+    //アイテムのNPC参加条件取得
+    public List<int> GetNormalAccessNPCs()
+    {
+        return mNormalaccessnpcs;
+    }
+    //アイテムのNPC執着参加条件取得
+    public List<int> GetSpecialAccessNPCs()
+    {
+        return mSpecialaccessnpcs;
     }
 }

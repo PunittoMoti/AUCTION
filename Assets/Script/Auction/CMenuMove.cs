@@ -28,7 +28,6 @@ public class CMenuMove : MonoBehaviour
         {
             if (mMenuObject.GetComponent<RectTransform>().anchoredPosition.x <= 440)
             {
-                Debug.Log("Debug");
                 mMenuObject.GetComponent<RectTransform>().anchoredPosition += new Vector2(2.0f, 0);//毎フレームx座標を0.1ずつプラス
 
             }

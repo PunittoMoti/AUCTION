@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CAuctionNPC : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class CAuctionNPC : MonoBehaviour
      */
 
 
-    int mNpcnumber;//NPC識別番号
+    [SerializeField]int mNpcnumber;//NPC識別番号
     int mActionpattern;//行動パターン(0:不参加、1:参加、2:執着)
     int mNormalendpattern;//通常終了パターン
     int mCriticalendpattern;//執着終了パターン
@@ -40,45 +41,6 @@ public class CAuctionNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-
-
-        ////フェーズごとの行動　マーねーじゃーのフェーズを参照
-        //switch (Phase)
-        //{
-        //    case 0://商品取得
-        //        //参加申請NPCMoneyじゃーで判定
-        //        break;
-        //    case 1://オークション中
-
-        //        //不参加ならここでリターン
-        //        if ()
-        //        {
-        //            return;
-        //        }
-
-        //        //状況確認　マネージャーに対して
-
-
-        //        //終了条件
-        //        switch ()
-        //        {
-        //            case 1://参加
-        //                //終了条件の判定(パターン別)
-        //                NormalEnd();
-        //                break;
-        //            case 2://執着
-        //                //執着終了条件の判定(パターン別)
-        //                CriticalEnd();
-        //                break;
-        //        }
-
-        //        break;
-        //    case 2://商品落選直後　初期化を行う
-        //        mActionpattern = 0;
-        //        mReactiontime = 0.0f;
-        //        break;
-        //}
 
     }
 
@@ -163,10 +125,26 @@ public class CAuctionNPC : MonoBehaviour
         mReactiontime = 0.0f;
     }
 
-    //参加・不参加・執着時のアイコン演出
-    void ActiveAnimationNPC()
+    //参加・不参加・執着時のアイコン演出 動きは仮作成
+    public void ActiveAnimationNPC()
     {
-
+        if (mActionpattern == 1)
+        {
+            Debug.Log("NPC" + mNpcnumber + "が参加しました");
+            this.gameObject.GetComponent<Image>().color = Color.white;
+            this.GetComponent<RectTransform>().anchoredPosition = new Vector2(-500.0f, this.GetComponent<RectTransform>().anchoredPosition.y);//毎フレームx座標を0.1ずつプラス
+        }
+        else if (mActionpattern == 2)
+        {
+            Debug.Log("NPC" + mNpcnumber + "が参加しました");
+            this.gameObject.GetComponent<Image>().color = Color.red;
+            this.GetComponent<RectTransform>().anchoredPosition = new Vector2(-470.0f, this.GetComponent<RectTransform>().anchoredPosition.y);//毎フレームx座標を0.1ずつプラス
+        }
+        else
+        {
+            this.gameObject.GetComponent<Image>().color = Color.gray;
+            this.GetComponent<RectTransform>().anchoredPosition = new Vector2(-530.0f, this.GetComponent<RectTransform>().anchoredPosition.y);//毎フレームx座標を0.1ずつプラス
+        }
     }
 
 }

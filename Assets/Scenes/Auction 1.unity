@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 19055997}
   - component: {fileID: 19055996}
   - component: {fileID: 19055995}
+  - component: {fileID: 19055999}
   m_Layer: 5
   m_Name: NPC_ Lust
   m_TagString: Untagged
@@ -271,6 +272,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19055993}
   m_CullTransparentMesh: 1
+--- !u!114 &19055999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19055993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b10981e8825e90428fbf5d3e4479e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mNpcnumber: 1
 --- !u!1 &34580339
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +373,7 @@ GameObject:
   - component: {fileID: 102999658}
   - component: {fileID: 102999657}
   - component: {fileID: 102999656}
+  - component: {fileID: 102999660}
   m_Layer: 5
   m_Name: NPC_Pride
   m_TagString: Untagged
@@ -495,6 +510,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102999654}
   m_CullTransparentMesh: 1
+--- !u!114 &102999660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102999654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b10981e8825e90428fbf5d3e4479e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mNpcnumber: 4
 --- !u!1 &103989085
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +536,7 @@ GameObject:
   - component: {fileID: 103989089}
   - component: {fileID: 103989088}
   - component: {fileID: 103989087}
+  - component: {fileID: 103989091}
   m_Layer: 5
   m_Name: NPC_Greed
   m_TagString: Untagged
@@ -644,6 +673,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103989085}
   m_CullTransparentMesh: 1
+--- !u!114 &103989091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103989085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b10981e8825e90428fbf5d3e4479e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mNpcnumber: 0
 --- !u!1 &116297576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,6 +1521,7 @@ GameObject:
   - component: {fileID: 818513361}
   - component: {fileID: 818513360}
   - component: {fileID: 818513359}
+  - component: {fileID: 818513363}
   m_Layer: 5
   m_Name: NPC_Sloth
   m_TagString: Untagged
@@ -1615,6 +1658,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818513357}
   m_CullTransparentMesh: 1
+--- !u!114 &818513363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818513357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b10981e8825e90428fbf5d3e4479e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mNpcnumber: 3
 --- !u!1 &835750053
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,6 +2279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1309086712}
   - component: {fileID: 1309086713}
+  - component: {fileID: 1309086714}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2257,6 +2314,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f2e7a56517754449c52db94caa7846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1309086714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309086710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3584cc4bd21b01a4aa0f8eec65cc4261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mSelectItem: {fileID: 11400000, guid: ad22e99f78fb9c14aa0e560305b73f1e, type: 2}
 --- !u!1 &1494852669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,6 +2378,7 @@ GameObject:
   - component: {fileID: 1495266955}
   - component: {fileID: 1495266954}
   - component: {fileID: 1495266953}
+  - component: {fileID: 1495266957}
   m_Layer: 5
   m_Name: NPC_Wrath
   m_TagString: Untagged
@@ -2444,6 +2515,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495266951}
   m_CullTransparentMesh: 1
+--- !u!114 &1495266957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495266951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b10981e8825e90428fbf5d3e4479e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mNpcnumber: 2
 --- !u!1 &1526149542
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,7 +64,6 @@
     <Compile Include="Assets\Script\Auction\Card\CCardObject.cs" />
     <Compile Include="Assets\oldScript\Sort\CCheckBoxObject.cs" />
     <Compile Include="Assets\oldScript\SItemList.cs" />
-    <Compile Include="Assets\Script\CItem.cs" />
     <Compile Include="Assets\Script\一時避難\CShopItemUI.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctionNPC.cs" />
     <Compile Include="Assets\Script\Auction\CMenuMove.cs" />

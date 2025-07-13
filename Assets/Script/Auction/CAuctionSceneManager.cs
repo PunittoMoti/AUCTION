@@ -12,6 +12,11 @@ public class CAuctionSceneManager : MonoBehaviour
 
     GameObject mMoneycounterObj;//金額表示
 
+    List<CItemData> mItemList;//オークションシーンで紹介されるアイテムリスト
+    CItemData mSelectitem;//現在紹介されているアイテム
+
+    bool mIsaction;//カード使用時のアクションが起きたときのフラグ
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +41,10 @@ public class CAuctionSceneManager : MonoBehaviour
 
             mDeck.Add(card);
         }
+
+        mIsaction = false;
+
+        mPhase = 0;
     }
 
     // Update is called once per frame
@@ -74,15 +83,35 @@ public class CAuctionSceneManager : MonoBehaviour
 
                 break;
             case 1://メインフェーズ
+                   //カード選択
+                   //選択されたカードを集約
+
+
+
+                //アイテムメニュー
+                //カタログメニュー
+
                 //カード使用
-                //カード選択
+                if (mIsaction)
+                {
+                    //ボタンで仮代用
+
+                    //金額プラス
+                    //NPCメインフェーズに移行
+                    mPhase = 2;
+                }
+                
+
+                break;
+            case 2://NPCメインフェーズ
+                
                 //NPCの行動
                 //アイテムメニュー
                 //カタログメニュー
                 //内部リザルトフェーズに移行
                 mPhase = 2;
                 break;
-            case 2://内部リザルトフェーズ
+            case 3://内部リザルトフェーズ
 
                 //購入判定
                 //買えなかったらカードを手札に返却
@@ -97,7 +126,7 @@ public class CAuctionSceneManager : MonoBehaviour
 
 
                 //ドローフェーズに移行
-                //mPhase = 0;
+                mPhase = 0;
                 break;
         }
 
