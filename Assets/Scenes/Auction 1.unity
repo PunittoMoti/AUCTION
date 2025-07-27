@@ -1268,7 +1268,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1309086713}
           m_TargetAssemblyTypeName: CAuctionSceneManager, Assembly-CSharp
-          m_MethodName: PassAction
+          m_MethodName: CardUes
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2270,6 +2270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f2e7a56517754449c52db94caa7846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mSelectitem: {fileID: 11400000, guid: ad22e99f78fb9c14aa0e560305b73f1e, type: 2}
 --- !u!114 &1309086714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2282,7 +2283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3584cc4bd21b01a4aa0f8eec65cc4261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mSelectItem: {fileID: 11400000, guid: ad22e99f78fb9c14aa0e560305b73f1e, type: 2}
 --- !u!1 &1494852669
 GameObject:
   m_ObjectHideFlags: 0

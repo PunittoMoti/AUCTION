@@ -13,9 +13,12 @@ public class CAuctionSceneManager : MonoBehaviour
     GameObject mMoneycounterObj;//金額表示
 
     List<CItemData> mItemList;//オークションシーンで紹介されるアイテムリスト
-    CItemData mSelectitem;//現在紹介されているアイテム
+    [SerializeField] CItemData mSelectitem;//現在紹介されているアイテム(Debug用にシリアライズ化している)
 
     bool mIsaction;//カード使用時のアクションが起きたときのフラグ
+
+
+    CAuctionNPCManager mNpcmanager;//NPCマネージャー
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,8 @@ public class CAuctionSceneManager : MonoBehaviour
         mUeshandcaeds = new List<CCardObject>();
         //金額表示オブジェクト取得
         mMoneycounterObj = GameObject.Find("NowPrice");
+        //NPCマネージャー取得
+        mNpcmanager = this.GetComponent<CAuctionNPCManager>();
 
         //デッキにカードを設定（テスト用）
         //→今後をデッキ配列取得に置き換え
@@ -104,10 +109,16 @@ public class CAuctionSceneManager : MonoBehaviour
 
                 break;
             case 2://NPCメインフェーズ
-                
+
                 //NPCの行動
                 //アイテムメニュー
                 //カタログメニュー
+                //NPCの参加申請チェック
+                mNpcmanager.CheckJoinNPCs(mSelectitem);
+
+                //全NPCの終了判定
+                mNpcmanager.ActionEndNPCs();
+
                 //内部リザルトフェーズに移行
                 mPhase = 3;
                 break;
@@ -124,6 +135,8 @@ public class CAuctionSceneManager : MonoBehaviour
                     Debug.Log("手札データ" + i + ": " + mHandcaeds[i].GetMonye());
                 }
 
+                //全NPCの初期化を行う
+                mNpcmanager.ActionEndNPCs();
 
                 //ドローフェーズに移行
                 mPhase = 0;
