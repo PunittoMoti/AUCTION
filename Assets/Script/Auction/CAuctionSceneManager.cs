@@ -79,7 +79,7 @@ public class CAuctionSceneManager : MonoBehaviour
                 GameObject.Find("HandCards").GetComponent<CHandcaedObject>().CreateCard();
 
                 //処理終了後メインフェーズに移行
-                mPhase = 1;
+                //mPhase = 1;
 
                 break;
             case 1://メインフェーズ
@@ -98,7 +98,7 @@ public class CAuctionSceneManager : MonoBehaviour
 
                     //金額プラス
                     //NPCメインフェーズに移行
-                    mPhase = 2;
+                    //mPhase = 2;
                 }
                 
 
@@ -109,7 +109,7 @@ public class CAuctionSceneManager : MonoBehaviour
                 //アイテムメニュー
                 //カタログメニュー
                 //内部リザルトフェーズに移行
-                mPhase = 2;
+                mPhase = 3;
                 break;
             case 3://内部リザルトフェーズ
 
@@ -163,28 +163,36 @@ public class CAuctionSceneManager : MonoBehaviour
     }
 
     //使用カード登録・金額計算
-    public void SetUesCard(CCardObject card)
+    public void SetUesCard(List<CCardObject> cards)
     {
-        mUeshandcaeds.Add(card);
+        //mUeshandcaeds.Add(card);
         float count = 0;
 
-        for(int i=0;i< mUeshandcaeds.Count; i++)
+        for(int i=0;i< cards.Count; i++)
         {
-            count += mUeshandcaeds[i].GetMonye();
+            count += cards[i].GetMonye();
         }
 
         //もし合計金額が表示金額より少なければ
-        if (float.Parse(mMoneycounterObj.GetComponent<TMP_Text>().text) > count) return;
+        //if (float.Parse(mMoneycounterObj.GetComponent<TMP_Text>().text) > count) return;
 
         //表示金額更新
         mMoneycounterObj.GetComponent<TMP_Text>().SetText("{0:0000000000}", count);
 
     }
 
+    public void CardUes()
+    {
+        //Debug.Log("Debug");
+        mPhase = 2;
+    }
+
+
     //デバッグ用処理　ボタンなどできっかけとなる動作を行うよう
     public void DebugAction()
     {
         //Debug.Log("Debug");
-        mPhase = 0;
+        mPhase = 1;
     }
+
 }

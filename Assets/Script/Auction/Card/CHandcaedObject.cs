@@ -24,7 +24,7 @@ public class CHandcaedObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        mAuctionscenemanager.GetComponent<CAuctionSceneManager>().SetUesCard(mUeshandcaeds);
     }
 
     //手札受け渡し
@@ -75,25 +75,32 @@ public class CHandcaedObject : MonoBehaviour
 
     }
 
-    //手札使用時の削除処理
-    public void UseCard(int number)
+    //手札使用時の処理
+    public void UseCard()
     {
-        //使用待機カード登録
-        mAuctionscenemanager.GetComponent<CAuctionSceneManager>().SetUesCard(mHandcaeds[number]);
-
-        //オブジェクトの配列から削除
-        mCardObjects.RemoveAt(number);
-        //手札Data配列から削除
-        mHandcaeds.RemoveAt(number);
-
-        for (int i = 0; i < mCardObjects.Count; i++)
+        for(int i=0;i< mUeshandcaeds.Count; i++)
         {
-            mCardObjects[i].GetComponent<CCardObject>().SetHandNumber(i);
+            //使用待機カード登録
+            mAuctionscenemanager.GetComponent<CAuctionSceneManager>().SetUesCard(mUeshandcaeds);
         }
-
-        //使用したカードを除いた位置調整
-        SortHandocaeds();
     }
 
+    //手札使用時の処理
+    public void SelectCard(CCardObject Card)
+    {
+        mUeshandcaeds.Add(Card);
+    }
+
+    //手札使用時の処理
+    public void ReleaseCard(CCardObject Card)
+    {
+        for (int i = 0; i < mUeshandcaeds.Count; i++)
+        {
+            if(mUeshandcaeds[i].GetHandNumber() == Card.GetHandNumber())
+            {
+                mUeshandcaeds.RemoveAt(i);
+            }
+        }
+    }
 
 }

@@ -8,7 +8,7 @@ public class CCardObject : MonoBehaviour
                //イラスト
     int mHandNumber;//配列番号
     Vector2 mHandCardPos; //手札時の座標
-    bool misHit;
+    bool misSelect;
     CHandcaedObject cHandcaedobject;
 
 
@@ -16,7 +16,7 @@ public class CCardObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        misHit = false;
+        misSelect = false;
         //手札オブジェクト取得
         cHandcaedobject = GameObject.Find("HandCards").GetComponent<CHandcaedObject>();
     }
@@ -28,27 +28,27 @@ public class CCardObject : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
+    //void OnTriggerEnter2D(Collider2D collision)
+    //{
        
-        if (collision.gameObject.name == "UesArea")
-        {
-            misHit = true;
-            //Debug.Log("あたった：" + misHit + "  " + mHandNumber);
+    //    if (collision.gameObject.name == "UesArea")
+    //    {
+    //        misHit = true;
+    //        //Debug.Log("あたった：" + misHit + "  " + mHandNumber);
 
-        }
-    }
+    //    }
+    //}
 
-    void OnTriggerExit2D(Collider2D collision)
-    {
+    //void OnTriggerExit2D(Collider2D collision)
+    //{
 
 
-        if (collision.gameObject.name == "UesArea")
-        {
-            misHit = false;
-            //Debug.Log("外れた：" + misHit + "  " + mHandNumber);
-        }
-    }
+    //    if (collision.gameObject.name == "UesArea")
+    //    {
+    //        misHit = false;
+    //        //Debug.Log("外れた：" + misHit + "  " + mHandNumber);
+    //    }
+    //}
 
 
 
@@ -78,18 +78,30 @@ public class CCardObject : MonoBehaviour
     //クリック時の関数
     public void ClickCard()
     {
-        //マウスカーソルと一緒に移動する 
-        Vector2 mousePos = Input.mousePosition;
+        if (misSelect) 
+        {
+            cHandcaedobject.SelectCard(this.GetComponent< CCardObject>());
+        }
+        else if (!misSelect)
+        {
+            cHandcaedobject.ReleaseCard(this.GetComponent<CCardObject>());
+        }
 
-        this.GetComponent<RectTransform>().anchoredPosition = mousePos;
+        /*カーソル追従処理（不要）
+        ////マウスカーソルと一緒に移動する 
+        //Vector2 mousePos = Input.mousePosition;
+
+        //this.GetComponent<RectTransform>().anchoredPosition = mousePos;
         //Debug.Log("クリック位置："+ mousePos);
+        */
 
-        //見た目をかえる？
+            //見た目をかえる？
     }
 
     //クリックを放した時の関数
     public void ReleaseCard()
     {
+        /*カーソルでのドラッグアンドドロップ処理（不要）
         //使用範囲に当たっていれば　使用　
         if (misHit)
         {
@@ -100,6 +112,8 @@ public class CCardObject : MonoBehaviour
             Destroy(this.gameObject);
 
         }
+            */
+
 
         //それ以外れあれば手札に戻る
 
