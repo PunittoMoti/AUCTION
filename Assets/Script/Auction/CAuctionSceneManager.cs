@@ -6,14 +6,15 @@ using TMPro;
 public class CAuctionSceneManager : MonoBehaviour
 {
     int mPhase;
+    int mItemnumber;//紹介されているアイテムナンバー
     List<CCardObject> mAddhandcaeds;//手札　カードオブジェクト配列(可変)
     List<CCardObject> mDeck;//デッキ　カードオブジェクト配列(可変)
     List<CCardObject> mUeshandcaeds;//使用待機カードオブジェクトを持っておく配列 (可変)
 
     GameObject mMoneycounterObj;//金額表示
 
-    List<CItemData> mItemList;//オークションシーンで紹介されるアイテムリスト
-    [SerializeField] CItemData mSelectitem;//現在紹介されているアイテム(Debug用にシリアライズ化している)
+    [SerializeField] List<CItemData> mItemList;//オークションシーンで紹介されるアイテムリスト(Debug用にシリアライズ化している)
+    //[SerializeField] CItemData mSelectitem;//現在紹介されているアイテム(Debug用にシリアライズ化している)
 
     bool mIsaction;//カード使用時のアクションが起きたときのフラグ
 
@@ -36,7 +37,8 @@ public class CAuctionSceneManager : MonoBehaviour
         mHandcaedobject = GameObject.Find("HandCards").GetComponent<CHandcaedObject>();
         ////手札配列生成
         //mHandcaeds = mHandcaedobject.mHandcaeds;
-
+        //紹介するアイテムNumber初期化
+        mItemnumber = 0;
 
         //デッキにカードを設定（テスト用）
         //→今後をデッキ配列取得に置き換え
@@ -123,7 +125,7 @@ public class CAuctionSceneManager : MonoBehaviour
                 //アイテムメニュー
                 //カタログメニュー
                 //NPCの参加申請チェック
-                mNpcmanager.CheckJoinNPCs(mSelectitem);
+                mNpcmanager.CheckJoinNPCs(mItemList[mItemnumber]);
 
                 //全NPCの終了判定
                 mNpcmanager.ActionEndNPCs();
@@ -181,7 +183,16 @@ public class CAuctionSceneManager : MonoBehaviour
     public void PassAction()
     {
         mPhase = 0;
-        //必要であればそのターン使用したカードが返ってくるように修正
+        mItemnumber++;
+        //この商品で使用したカードをデッキに返す
+        for(int i=0;i< mUeshandcaeds.Count; i++)
+        {
+            mDeck.Add(mUeshandcaeds[i]);
+        }
+        //使用済み配列の初期化
+        mUeshandcaeds = new List<CCardObject>();
+
+
     }
 
     //使用カード登録・金額計算

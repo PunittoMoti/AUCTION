@@ -2270,7 +2270,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f2e7a56517754449c52db94caa7846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mSelectitem: {fileID: 11400000, guid: ad22e99f78fb9c14aa0e560305b73f1e, type: 2}
+  mItemList:
+  - {fileID: 11400000, guid: ad22e99f78fb9c14aa0e560305b73f1e, type: 2}
+  - {fileID: 11400000, guid: ad22e99f78fb9c14aa0e560305b73f1e, type: 2}
+  - {fileID: 11400000, guid: ad22e99f78fb9c14aa0e560305b73f1e, type: 2}
 --- !u!114 &1309086714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2877,7 +2880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309b93c37a15d684ca2f18bed6b9cd05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mHandcaeds: []
   mUeshandcaeds: []
   mOriginCardObject: {fileID: 1943704881129596673, guid: d16b3ec5e36fae6448c59bb6a769fc51, type: 3}
 --- !u!1 &2040070894
