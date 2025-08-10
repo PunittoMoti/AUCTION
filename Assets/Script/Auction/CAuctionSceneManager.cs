@@ -6,7 +6,7 @@ using TMPro;
 public class CAuctionSceneManager : MonoBehaviour
 {
     int mPhase;
-    List<CCardObject> mHandcaeds;//手札　カードオブジェクト配列(可変)
+    List<CCardObject> mAddhandcaeds;//手札　カードオブジェクト配列(可変)
     List<CCardObject> mDeck;//デッキ　カードオブジェクト配列(可変)
     List<CCardObject> mUeshandcaeds;//使用待機カードオブジェクトを持っておく配列 (可変)
 
@@ -19,12 +19,11 @@ public class CAuctionSceneManager : MonoBehaviour
 
 
     CAuctionNPCManager mNpcmanager;//NPCマネージャー
+    CHandcaedObject mHandcaedobject;//手札Object
 
     // Start is called before the first frame update
     void Start()
     {
-        //手札配列生成
-        mHandcaeds = new List<CCardObject>();
         //デッキ配列生成
         mDeck = new List<CCardObject>();
         //使用待機カード配列生成
@@ -33,6 +32,11 @@ public class CAuctionSceneManager : MonoBehaviour
         mMoneycounterObj = GameObject.Find("NowPrice");
         //NPCマネージャー取得
         mNpcmanager = this.GetComponent<CAuctionNPCManager>();
+        //手札オブジェクト取得
+        mHandcaedobject = GameObject.Find("HandCards").GetComponent<CHandcaedObject>();
+        ////手札配列生成
+        //mHandcaeds = mHandcaedobject.mHandcaeds;
+
 
         //デッキにカードを設定（テスト用）
         //→今後をデッキ配列取得に置き換え
@@ -58,13 +62,15 @@ public class CAuctionSceneManager : MonoBehaviour
         switch (mPhase)
         {
             case 0://ドローフェーズ・NPC参加判定
+                mAddhandcaeds = new List<CCardObject>();
+
                 //枚数が5未満だったら
-                if (mHandcaeds.Count < 5)
+                if (mHandcaedobject.GetCardObjects().Count < 5)
                 {
                     //5枚になるまでデッキからランダムに追加し、デッキから1つデータを削除
 
                     //手札が5枚になるまでデータを追加
-                    for (int i = mHandcaeds.Count; i < 5; i++)
+                    for (int i = mHandcaedobject.GetCardObjects().Count; i < 5; i++)
                     {
                         DrawAction();
                     }
@@ -77,20 +83,23 @@ public class CAuctionSceneManager : MonoBehaviour
                 }
 
                 //紹介開始フラグ送信
-
+                for (int i = 0; i < mHandcaedobject.GetCardObjects().Count; i++)
+                {
+                    //Debug.Log("カード金額" + i + ":" + mAddhandcaeds[i].GetMonye());
+                }
                 //カードオブジェクト生成
                 //カードオブジェクトのｘ座標を既定の長さ÷手札配列の最大数で設定
-                GameObject.Find("HandCards").GetComponent<CHandcaedObject>().SetHandcaeds(mHandcaeds);
-                GameObject.Find("HandCards").GetComponent<CHandcaedObject>().CreateCard();
+                //mHandcaedobject.SetHandcaeds(mHandcaeds);
+                mHandcaedobject.CreateCard(mAddhandcaeds);
 
                 //処理終了後メインフェーズに移行
-                //mPhase = 1;
+                mPhase = 1;
 
                 break;
             case 1://メインフェーズ
-                   //カード選択
-                   //選択されたカードを集約
 
+                //選択されたカードの状態を反映
+                SetUesCard(mHandcaedobject.GetCardObjects());
 
 
                 //アイテムメニュー
@@ -130,10 +139,10 @@ public class CAuctionSceneManager : MonoBehaviour
                 
 
                 //でバッグ処理
-                for (int i = 0; i < mHandcaeds.Count; i++)
-                {
-                    Debug.Log("手札データ" + i + ": " + mHandcaeds[i].GetMonye());
-                }
+                //for (int i = 0; i < mHandcaeds.Count; i++)
+                //{
+                //    Debug.Log("手札データ" + i + ": " + mHandcaeds[i].GetMonye());
+                //}
 
                 //全NPCの初期化を行う
                 mNpcmanager.ActionEndNPCs();
@@ -162,7 +171,7 @@ public class CAuctionSceneManager : MonoBehaviour
         //デッキのランダムな配列番号決定
         DeckNo = Random.Range(0, mDeck.Count - 1);
         //手札に追加
-        mHandcaeds.Add(mDeck[DeckNo]);
+        mAddhandcaeds.Add(mDeck[DeckNo]);
 
         //使用したデータをデッキから削除
         mDeck.RemoveAt(DeckNo);
@@ -176,14 +185,28 @@ public class CAuctionSceneManager : MonoBehaviour
     }
 
     //使用カード登録・金額計算
-    public void SetUesCard(List<CCardObject> cards)
+    public void SetUesCard(List<GameObject> cards)
     {
+        //Debug.Log("読み出し:"+ cards.Count);
+        
         //mUeshandcaeds.Add(card);
         float count = 0;
 
         for(int i=0;i< cards.Count; i++)
         {
-            count += cards[i].GetMonye();
+            if (cards[i] != null)
+            {
+                if (cards[i].GetComponent<CCardObject>().GetisSelect())
+                {
+                    count += cards[i].GetComponent<CCardObject>().GetMonye();
+                }
+            }
+            
+        }
+
+        for (int i = 0; i < mUeshandcaeds.Count; i++)
+        {
+            count += mUeshandcaeds[i].GetMonye();
         }
 
         //もし合計金額が表示金額より少なければ
@@ -197,7 +220,21 @@ public class CAuctionSceneManager : MonoBehaviour
     public void CardUes()
     {
         //Debug.Log("Debug");
+        //フェーズ変更
         mPhase = 2;
+
+        //使用済みカード登録
+        for(int i=0;i< mHandcaedobject.GetCardObjects().Count; i++)
+        {
+            if (mHandcaedobject.GetCardObjects()[i].GetComponent<CCardObject>().GetisSelect())
+            {
+                mUeshandcaeds.Add(mHandcaedobject.GetCardObjects()[i].GetComponent<CCardObject>());
+            }
+           
+        }
+       
+        //削除処理
+        mHandcaedobject.PayUesCards();
     }
 
 

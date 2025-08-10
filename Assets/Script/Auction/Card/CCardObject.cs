@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CCardObject : MonoBehaviour
 {
@@ -28,31 +29,6 @@ public class CCardObject : MonoBehaviour
 
     }
 
-    //void OnTriggerEnter2D(Collider2D collision)
-    //{
-       
-    //    if (collision.gameObject.name == "UesArea")
-    //    {
-    //        misHit = true;
-    //        //Debug.Log("あたった：" + misHit + "  " + mHandNumber);
-
-    //    }
-    //}
-
-    //void OnTriggerExit2D(Collider2D collision)
-    //{
-
-
-    //    if (collision.gameObject.name == "UesArea")
-    //    {
-    //        misHit = false;
-    //        //Debug.Log("外れた：" + misHit + "  " + mHandNumber);
-    //    }
-    //}
-
-
-
-
     //金額取得
     public void SetMonye(int value)
     {
@@ -75,49 +51,33 @@ public class CCardObject : MonoBehaviour
         return mHandNumber;
     }
 
+    public bool GetisSelect()
+    {
+        return misSelect;
+    }
+
     //クリック時の関数
     public void ClickCard()
     {
-        if (misSelect) 
+        if (!misSelect) 
         {
-            cHandcaedobject.SelectCard(this.GetComponent< CCardObject>());
+            misSelect = true;
+            //cHandcaedobject.SelectCard(this.GetComponent< CCardObject>());
+            this.GetComponent<Image>().color = Color.green;
         }
-        else if (!misSelect)
+        else if (misSelect)
         {
-            cHandcaedobject.ReleaseCard(this.GetComponent<CCardObject>());
+            misSelect = false;
+            //cHandcaedobject.ReleaseCard(this.GetComponent<CCardObject>());
+            this.GetComponent<Image>().color = Color.white;
         }
-
-        /*カーソル追従処理（不要）
-        ////マウスカーソルと一緒に移動する 
-        //Vector2 mousePos = Input.mousePosition;
-
-        //this.GetComponent<RectTransform>().anchoredPosition = mousePos;
-        //Debug.Log("クリック位置："+ mousePos);
-        */
-
-            //見た目をかえる？
     }
 
-    //クリックを放した時の関数
+    //使用確定した際の時の関数
     public void ReleaseCard()
     {
-        /*カーソルでのドラッグアンドドロップ処理（不要）
-        //使用範囲に当たっていれば　使用　
-        if (misHit)
-        {
-            //使用して、配列から削除要求
-            cHandcaedobject.UseCard(mHandNumber);
-
-            //オブジェクト削除
-            Destroy(this.gameObject);
-
-        }
-            */
-
-
-        //それ以外れあれば手札に戻る
-
-        this.GetComponent<RectTransform>().anchoredPosition = mHandCardPos;
+        //オブジェクト削除
+        Destroy(gameObject);
     }
 
     //手札時の座標設定・更新
