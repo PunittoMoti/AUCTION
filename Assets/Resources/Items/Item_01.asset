@@ -15,7 +15,7 @@ MonoBehaviour:
   mName: 
   mPrice: 0
   mPriceupvalue: 0
-  mSellvalue: 0
+  mSellvalue: 10000
   mItemStatus: 0
   mItemtext: 
   mItemsecrettext: 

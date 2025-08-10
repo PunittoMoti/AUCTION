@@ -10,17 +10,21 @@ public class CAuctionSceneManager : MonoBehaviour
     List<CCardObject> mAddhandcaeds;//手札　カードオブジェクト配列(可変)
     List<CCardObject> mDeck;//デッキ　カードオブジェクト配列(可変)
     List<CCardObject> mUeshandcaeds;//使用待機カードオブジェクトを持っておく配列 (可変)
+    List<CItemData> mUesItems;//使用待機カードオブジェクトを持っておく配列 (可変)
 
     GameObject mMoneycounterObj;//金額表示
+    GameObject mUsepop;//確認UI
 
     [SerializeField] List<CItemData> mItemList;//オークションシーンで紹介されるアイテムリスト(Debug用にシリアライズ化している)
-    //[SerializeField] CItemData mSelectitem;//現在紹介されているアイテム(Debug用にシリアライズ化している)
 
     bool mIsaction;//カード使用時のアクションが起きたときのフラグ
 
 
     CAuctionNPCManager mNpcmanager;//NPCマネージャー
     CHandcaedObject mHandcaedobject;//手札Object
+
+    CMenuObject mItemMenu;//アイテムメニュー
+    CMenuObject mPartsMenu;//パーツメニュー
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +39,16 @@ public class CAuctionSceneManager : MonoBehaviour
         mNpcmanager = this.GetComponent<CAuctionNPCManager>();
         //手札オブジェクト取得
         mHandcaedobject = GameObject.Find("HandCards").GetComponent<CHandcaedObject>();
+
+        //メニュクラス取得
+        mItemMenu = GameObject.Find("ItemObjs").GetComponent<CMenuObject>();
+        mPartsMenu = GameObject.Find("PartsObjs").GetComponent<CMenuObject>(); 
+
+        mUsepop = GameObject.Find("Pops");
+        mUsepop.SetActive(false);
+
+        mUesItems = new List<CItemData>();
+
         ////手札配列生成
         //mHandcaeds = mHandcaedobject.mHandcaeds;
         //紹介するアイテムNumber初期化
@@ -105,6 +119,26 @@ public class CAuctionSceneManager : MonoBehaviour
 
 
                 //アイテムメニュー
+                //アイテムが選択されている場合確認ポップを出す（ON/OFF）
+                if (mItemMenu.GetIsSelectItem())
+                {
+                    if (!mUsepop.activeSelf)
+                    {
+                        mUsepop.SetActive(true);
+                    }
+                }
+                else if (mPartsMenu.GetIsSelectItem())
+                {
+                    if (!mUsepop.activeSelf)
+                    {
+                        mUsepop.SetActive(true);
+                    }
+                }
+                else
+                {
+
+                }
+
                 //カタログメニュー
 
                 //カード使用
@@ -220,6 +254,11 @@ public class CAuctionSceneManager : MonoBehaviour
             count += mUeshandcaeds[i].GetMonye();
         }
 
+        for (int i = 0; i < mUesItems.Count; i++)
+        {
+            count += mUesItems[i].GetSellvalue();
+        }
+
         //もし合計金額が表示金額より少なければ
         //if (float.Parse(mMoneycounterObj.GetComponent<TMP_Text>().text) > count) return;
 
@@ -246,6 +285,22 @@ public class CAuctionSceneManager : MonoBehaviour
        
         //削除処理
         mHandcaedobject.PayUesCards();
+    }
+
+    public void UesPopAction()
+    {
+        if (mItemMenu.GetIsSelectItem())
+        {
+            mUesItems.Add(mItemMenu.GetSelectItemData());
+            mItemMenu.ReleaseItemButton();
+        }
+        else if (mPartsMenu.GetIsSelectItem())
+        {
+            mUesItems.Add(mPartsMenu.GetSelectItemData());
+            mPartsMenu.ReleaseItemButton();
+        }
+
+        mUsepop.SetActive(false);
     }
 
 

@@ -66,7 +66,7 @@
     <Compile Include="Assets\oldScript\SItemList.cs" />
     <Compile Include="Assets\Script\一時避難\CShopItemUI.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctionNPC.cs" />
-    <Compile Include="Assets\Script\Auction\CMenuMove.cs" />
+    <Compile Include="Assets\Script\Auction\Menu\CMenuMove.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctioncatalogObject.cs" />
     <Compile Include="Assets\oldScript\CSceneMoveObject.cs" />
     <Compile Include="Assets\Script\Auction\NPC\CAuctionNPCManager.cs" />
@@ -75,6 +75,7 @@
     <Compile Include="Assets\Script\一時避難\Manager\CCalendarManager.cs" />
     <Compile Include="Assets\oldScript\Sort\CSortItemObject.cs" />
     <Compile Include="Assets\oldScript\Shop\CShopManager.cs" />
+    <Compile Include="Assets\Script\CItemButton.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctiontalkManager.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctionMessageManager.cs" />
     <Compile Include="Assets\Script\Auction\Card\CHandcaedObject.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Assets\oldScript\Shop\CItemList.cs" />
     <Compile Include="Assets\oldScript\Shop\CShowShopObject.cs" />
     <Compile Include="Assets\oldScript\ItemStatus.cs" />
+    <Compile Include="Assets\Script\Auction\Menu\CMenuObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
