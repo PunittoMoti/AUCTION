@@ -68,7 +68,6 @@
     <Compile Include="Assets\oldScript\Auction\CAuctionNPC.cs" />
     <Compile Include="Assets\Script\Auction\Menu\CMenuMove.cs" />
     <Compile Include="Assets\oldScript\Auction\CAuctioncatalogObject.cs" />
-    <Compile Include="Assets\oldScript\CSceneMoveObject.cs" />
     <Compile Include="Assets\Script\Auction\NPC\CAuctionNPCManager.cs" />
     <Compile Include="Assets\Script\CItemObject.cs" />
     <Compile Include="Assets\oldScript\CTestGameManager.cs" />
@@ -104,6 +103,7 @@
     <Compile Include="Assets\oldScript\Sort\CSortItemList.cs" />
     <Compile Include="Assets\oldScript\Shop\CItemList.cs" />
     <Compile Include="Assets\oldScript\Shop\CShowShopObject.cs" />
+    <Compile Include="Assets\Script\CSceneMoveObject.cs" />
     <Compile Include="Assets\oldScript\ItemStatus.cs" />
     <Compile Include="Assets\Script\Auction\Menu\CMenuObject.cs" />
   </ItemGroup>

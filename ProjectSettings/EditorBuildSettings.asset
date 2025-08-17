@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Shop.unity
     guid: a698b1c5797683e4589e73acea4f431d
   - enabled: 1
-    path: Assets/Scenes/Auction.unity
+    path: Assets/Scenes/Auction_old.unity
     guid: 28eb012400a18154e862d32ff2c6bbc7
   - enabled: 1
     path: Assets/Scenes/Result.unity
@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Event-End.unity
     guid: 39affcc0acbd7524eb384dc95d40ad11
+  - enabled: 1
+    path: Assets/Scenes/Search.unity
+    guid: 6a2a13f852003034f89d3d9de58b2399
+  - enabled: 1
+    path: Assets/Scenes/Auction.unity
+    guid: 5ad3c25207616d747a8301139e28b1c3
   m_configObjects: {}

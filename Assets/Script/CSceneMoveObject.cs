@@ -30,6 +30,7 @@ public class CSceneMoveObject : MonoBehaviour
 
     public void MoveScene()
     {
+        Debug.Log("ƒNƒŠƒbƒN");
         SceneManager.LoadScene(mScenename);
     }
 
